@@ -1,0 +1,1307 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caminantes del Galeras: Interculturalidad y Convivencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#EAF3F7; --surface:#FFFFFF; --soft:#F4F9FB; --ink:#1B2A41; --muted:#56677D; --line:#D3E1EA;
+  --red:#D7263D; --red-dk:#A51B2E; --gold:#F4B400; --gold-dk:#B98700; --teal:#0E8C98; --teal-dk:#086570;
+  --green:#2E8B57; --green-dk:#1E6440; --purple:#6C4AB6; --blue:#1F6FB2; --ok:#E3F5EA; --bad:#FDE8EA;
+  --display:'Baloo 2','Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1A28; --surface:#172538; --soft:#1C2D44; --ink:#EAF1F8; --muted:#A3B4C7; --line:#2B3F58; --ok:#173B2A; --bad:#43202A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1A28; --surface:#172538; --soft:#1C2D44; --ink:#EAF1F8; --muted:#A3B4C7; --line:#2B3F58; --ok:#173B2A; --bad:#43202A;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);height:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0 0 .35em;letter-spacing:-.01em}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800}
+h2{font-size:clamp(23px,3.6vw,30px);font-weight:800}
+h3{font-size:21px;font-weight:700}
+p{margin:0 0 .8em}
+img,video,svg{max-width:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+.lead{color:var(--muted);font-size:18px;max-width:62ch}
+.wrap{max-width:1020px;margin:0 auto;padding:22px 16px 56px}
+
+/* franja inspirada en el barniz de Pasto */
+.band{height:14px;background-color:#1B2A41;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='14'%3E%3Cpath d='M0 7 7 0 14 7 7 14Z' fill='%23D7263D'/%3E%3Cpath d='M14 7 21 0 28 7 21 14Z' fill='%23F4B400'/%3E%3Cpath d='M28 7 35 0 42 7 35 14Z' fill='%230E8C98'/%3E%3Cpath d='M42 7 49 0 56 7 49 14Z' fill='%232E8B57'/%3E%3Ccircle cx='7' cy='7' r='2' fill='%23fff'/%3E%3Ccircle cx='21' cy='7' r='2' fill='%231B2A41'/%3E%3Ccircle cx='35' cy='7' r='2' fill='%23fff'/%3E%3Ccircle cx='49' cy='7' r='2' fill='%23fff'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:56px 14px}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 18px/1.1 var(--display);border:0;border-radius:16px;padding:13px 24px 11px;background:var(--teal);color:#fff;box-shadow:0 5px 0 var(--teal-dk);cursor:pointer;transition:transform .08s,box-shadow .08s;text-decoration:none;min-height:48px}
+.btn:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--teal-dk)}
+.btn.red{background:var(--red);box-shadow:0 5px 0 var(--red-dk)}
+.btn.gold{background:var(--gold);color:#2a1d00;box-shadow:0 5px 0 var(--gold-dk)}
+.btn.green{background:var(--green);box-shadow:0 5px 0 var(--green-dk)}
+.btn.ghost{background:var(--surface);color:var(--ink);box-shadow:0 5px 0 var(--line);border:2px solid var(--line)}
+.btn.small{font-size:15px;padding:9px 14px 7px;min-height:40px;border-radius:12px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.spread{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;margin-top:22px}
+
+/* barra superior */
+#top{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:2px solid var(--line)}
+#top .inner{max-width:1020px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#top .who{display:flex;align-items:center;gap:10px;font-weight:800;min-width:0}
+#top .who svg{width:42px;height:42px;flex:none}
+#top .who span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:36vw}
+#top .stats{margin-left:auto;display:flex;gap:14px;font-weight:800;font-size:16px;align-items:center}
+.pill{background:var(--soft);border:2px solid var(--line);border-radius:999px;padding:3px 12px;white-space:nowrap}
+
+.card{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:20px}
+.panel{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,26px);margin-top:18px}
+.panel > h3:first-child{margin-top:0}
+.kicker{font:700 16px var(--display);color:var(--teal)}
+
+/* --- pantalla avatar --- */
+.creator{display:grid;grid-template-columns:minmax(240px,340px) 1fr;gap:22px;margin-top:14px}
+@media (max-width:760px){.creator{grid-template-columns:1fr}}
+.preview{background:linear-gradient(180deg,#BFE3F2,#E6F4EA);border-radius:26px;padding:18px;text-align:center;border:2px solid var(--line);position:sticky;top:76px;align-self:start}
+@media (max-width:760px){.preview{position:static}}
+.preview svg{width:min(240px,70vw);height:auto;display:block;margin:0 auto}
+.preview .nm{font:800 26px var(--display);color:#1B2A41;min-height:1.2em;margin-top:6px;word-break:break-word}
+.opt{margin-bottom:16px}
+.opt > .lbl{font:700 17px var(--display);margin-bottom:6px;display:block}
+.sws{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:44px;height:44px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--line);cursor:pointer}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink);transform:scale(1.08)}
+.chip{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:6px 10px;font-weight:700;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;gap:2px;min-width:78px;font-size:14px}
+.chip svg{width:52px;height:52px}
+.chip[aria-pressed="true"]{border-color:var(--teal);background:color-mix(in srgb,var(--teal) 12%,var(--surface));box-shadow:0 3px 0 var(--teal)}
+.seg{display:inline-flex;background:var(--soft);border:2px solid var(--line);border-radius:14px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;padding:8px 18px;border-radius:10px;font:700 17px var(--display);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--teal);color:#fff}
+.input{width:100%;font:700 20px var(--body);padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--ink)}
+.input:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--teal) 30%,transparent)}
+.hint{color:var(--muted);font-size:15px}
+
+/* --- título principal pantalla 2 --- */
+.hero{border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#16324F 0%,#1F6FB2 60%,#3FA7C9 100%);color:#fff;position:relative}
+.hero .in{padding:26px 22px 90px;position:relative;z-index:1;text-align:center}
+.hero h1{color:#fff;margin-bottom:6px}
+.hero .sub{opacity:.92;font-weight:700}
+.hero svg.mnt{position:absolute;left:0;right:0;bottom:0;width:100%;height:110px}
+.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+@media (max-width:860px){.comp-grid{grid-template-columns:repeat(2,1fr)}}
+.comp{background:var(--surface);border:3px solid var(--line);border-radius:22px;padding:14px 10px 16px;text-align:center;cursor:pointer;color:var(--ink);transition:transform .12s}
+.comp:hover{transform:translateY(-3px)}
+.comp[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 6px 0 var(--gold)}
+.comp svg{width:110px;height:110px}
+.comp .n{font:800 20px var(--display);margin-top:4px}
+.comp .r{font-size:14px;color:var(--muted);font-weight:700}
+.bubble{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:12px 16px;position:relative;font-weight:600}
+.guide{display:flex;gap:12px;align-items:flex-end;margin:14px 0}
+.guide svg{width:74px;height:74px;flex:none}
+.guide .bubble{border-bottom-left-radius:4px}
+
+/* --- cuestionario --- */
+.qcard{max-width:720px;margin:18px auto 0;text-align:center}
+.qnum{font:700 16px var(--display);color:var(--muted)}
+.qtext{font:700 clamp(22px,3.4vw,28px)/1.25 var(--display);margin:10px 0 22px;min-height:3.8em;display:flex;align-items:center;justify-content:center}
+.answers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ans{border:3px solid var(--line);background:var(--surface);color:var(--ink);border-radius:20px;padding:16px 6px;font:800 21px var(--display);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+.ans .e{font-size:36px;line-height:1}
+.ans[aria-pressed="true"]{border-color:var(--teal);background:color-mix(in srgb,var(--teal) 12%,var(--surface))}
+.bar{height:12px;background:var(--soft);border-radius:999px;border:2px solid var(--line);overflow:hidden;margin:12px 0 0}
+.bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--green));transition:width .3s}
+
+/* --- tarjetas volteables --- */
+.flip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+@media (max-width:860px){.flip-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:440px){.flip-grid{grid-template-columns:1fr}}
+.flip{perspective:900px;height:290px;border:0;background:none;padding:0;cursor:pointer;color:inherit;text-align:center}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .55s;transform-style:preserve-3d}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.flip .f{background:var(--surface);border:2px solid var(--line)}
+.flip .f b{font:800 20px var(--display);margin-top:10px}
+.flip .f small{color:var(--muted);margin-top:6px}
+.flip .b{transform:rotateY(180deg);color:#fff;font-weight:700;font-size:15px;line-height:1.4}
+.flip .b cite{display:block;margin-top:10px;font-size:13px;opacity:.9}
+
+/* --- mapa --- */
+.mapbox{background:var(--surface);border:2px solid var(--line);border-radius:26px;overflow:hidden;margin-top:14px}
+.mapbox svg{display:block;width:100%;height:auto}
+.stop{cursor:pointer}
+.stop.locked{cursor:not-allowed}
+.stop:focus-visible circle.ring{stroke:var(--gold);stroke-width:8}
+.stop:not(.locked):hover .pin{transform:translateY(-4px)}
+.pin{transition:transform .15s;transform-box:fill-box}
+@keyframes pulse{0%,100%{r:40;opacity:.6}50%{r:52;opacity:0}}
+.halo{animation:pulse 1.8s infinite}
+@media (prefers-reduced-motion:reduce){.halo{animation:none}}
+.legend{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:12px;border-top:2px solid var(--line)}
+@media (max-width:700px){.legend{grid-template-columns:1fr 1fr}}
+.legend button{border:2px solid var(--line);background:var(--soft);color:var(--ink);border-radius:14px;padding:8px;font:700 15px var(--display);cursor:pointer;text-align:left}
+.legend button:disabled{opacity:.55;cursor:not-allowed}
+
+/* --- zona --- */
+.zhead{border-radius:26px;padding:22px;color:#fff;position:relative;overflow:hidden}
+.zhead h1{color:#fff;margin:0}
+.zhead p{margin:6px 0 0;font-weight:700;opacity:.95;max-width:60ch}
+.zhead .back{position:absolute;top:14px;right:14px}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.steps span{background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:4px 12px;font:700 14px var(--display)}
+.steps span.done{background:var(--ok);border-color:var(--green)}
+
+.mv{border-radius:20px;overflow:hidden;background:#0f1b2b;border:2px solid var(--line)}
+.mv-stage{position:relative;aspect-ratio:16/9;overflow:hidden}
+.mv-art{position:absolute;inset:0;transition:transform 5.5s ease-in-out;transform-origin:50% 50%}
+.mv-art svg,.mv-art img{width:100%;height:100%;display:block;object-fit:cover}
+.mv-cap{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(10,20,34,.82);color:#fff;border-radius:14px;padding:10px 14px;font-weight:700;font-size:clamp(15px,2.2vw,19px);line-height:1.35;opacity:0;transition:opacity .4s}
+.mv-cap.on{opacity:1}
+.mv-play{position:absolute;inset:0;margin:auto;width:92px;height:92px;border-radius:50%;border:0;background:rgba(255,255,255,.95);color:#1B2A41;font-size:38px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;padding-left:6px}
+.mv-ctrl{display:flex;align-items:center;gap:12px;padding:10px 12px;background:#15263b;color:#dfe8f2;flex-wrap:wrap}
+.mv-ctrl .dots{display:flex;gap:6px;flex:1}
+.mv-ctrl .dots i{flex:1;height:6px;border-radius:4px;background:#2d4260}
+.mv-ctrl .dots i.on{background:var(--gold)}
+.mv-ctrl label{font-size:14px;font-weight:700;display:flex;gap:6px;align-items:center;cursor:pointer}
+.vid{background:#000;border-radius:20px;overflow:hidden;border:2px solid var(--line);display:flex;justify-content:center}
+.vid video{display:block;max-height:70vh;width:100%;background:#000}
+.vid.tall video{width:auto;max-width:100%;height:min(70vh,560px)}
+.vidrow{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:18px;align-items:start}
+@media (max-width:700px){.vidrow{grid-template-columns:1fr}}
+.yt{font-size:14px;font-weight:700;color:var(--blue)}
+
+/* preguntas */
+.mcq{border:2px solid var(--line);border-radius:18px;padding:14px;margin-top:12px;background:var(--soft)}
+.mcq .q{font:700 19px/1.3 var(--display);margin-bottom:10px}
+.mcq .opts{display:grid;gap:8px}
+.mcq .o{text-align:left;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:11px 14px;font-weight:700;font-size:16px;cursor:pointer}
+.mcq .o.right{background:var(--ok);border-color:var(--green)}
+.mcq .o.wrong{background:var(--bad);border-color:var(--red)}
+.mcq .fb{margin-top:10px;font-weight:700;display:none}
+.mcq .fb.show{display:block}
+
+/* sopa de letras */
+.ws{display:grid;grid-template-columns:auto minmax(220px,1fr);gap:20px;align-items:start}
+@media (max-width:760px){.ws{grid-template-columns:1fr}}
+.grid-ws{display:grid;gap:3px;touch-action:none;user-select:none;-webkit-user-select:none;width:min(100%,480px);margin:0 auto}
+.grid-ws div{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font:800 clamp(13px,3.2vw,20px) var(--display);background:var(--surface);border:2px solid var(--line);border-radius:8px;cursor:pointer}
+.grid-ws div.sel{background:var(--gold);border-color:var(--gold-dk);color:#2a1d00}
+.grid-ws div.found{color:#fff;border-color:transparent}
+.wlist{display:flex;flex-wrap:wrap;gap:8px}
+.wlist span{border:2px solid var(--line);border-radius:12px;padding:5px 10px;font:700 15px var(--display);background:var(--surface)}
+.wlist span.found{color:#fff;border-color:transparent;text-decoration:line-through}
+.meaning{margin-top:12px;min-height:84px}
+
+/* crucigrama */
+.cw{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+@media (max-width:820px){.cw{grid-template-columns:1fr}}
+.cw-grid{display:grid;gap:2px;margin:0 auto;--cs:min(34px,calc((100vw - 60px)/13))}
+.cw-grid .c{width:var(--cs);height:var(--cs);position:relative}
+.cw-grid .c.on{background:var(--surface);border:2px solid #6d7f95;border-radius:4px}
+.cw-grid .c input{width:100%;height:100%;border:0;background:transparent;text-align:center;font:800 calc(var(--cs)*.55) var(--display);color:var(--ink);text-transform:uppercase;padding:0;caret-color:var(--red)}
+.cw-grid .c input:focus{outline:none;background:color-mix(in srgb,var(--gold) 45%,transparent)}
+.cw-grid .c.hl{background:color-mix(in srgb,var(--teal) 16%,var(--surface))}
+.cw-grid .c.okc{background:var(--ok);border-color:var(--green)}
+.cw-grid .c.badc{background:var(--bad);border-color:var(--red)}
+.cw-grid .c sup{position:absolute;top:0;left:2px;font-size:10px;font-weight:800;color:var(--muted);line-height:1;pointer-events:none}
+.clues h4{font:800 17px var(--display);margin:8px 0 4px}
+.clues ol{list-style:none;padding:0;margin:0}
+.clues li{padding:6px 8px;border-radius:10px;cursor:pointer;font-size:15px}
+.clues li:hover{background:var(--soft)}
+.clues li.act{background:color-mix(in srgb,var(--teal) 16%,var(--surface))}
+.clues li.solved{color:var(--green);font-weight:800}
+
+/* platos */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:600px){.match{grid-template-columns:1fr}}
+.match .col{display:grid;gap:8px}
+.mt{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:10px 12px;text-align:left;font-weight:700;cursor:pointer;font-size:15.5px}
+.mt.dish{font:800 18px var(--display)}
+.mt.pick{border-color:var(--gold);box-shadow:0 3px 0 var(--gold)}
+.mt.ok{background:var(--ok);border-color:var(--green);cursor:default}
+.mt.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+.gallery{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.gallery figure{margin:0;flex:0 0 min(260px,75vw);scroll-snap-align:start;background:var(--soft);border:2px solid var(--line);border-radius:16px;overflow:hidden}
+.gallery img{width:100%;height:170px;object-fit:cover;display:block}
+.gallery figcaption{padding:8px 10px;font-size:14px;font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.two{grid-template-columns:1fr}}
+.fact{border-left:6px solid var(--gold);background:var(--soft);border-radius:12px;padding:10px 14px;font-weight:600;margin:10px 0}
+
+/* rompecabezas */
+.pz-wrap{display:grid;grid-template-columns:auto 200px;gap:18px;align-items:start}
+@media (max-width:700px){.pz-wrap{grid-template-columns:1fr}}
+.pz{display:grid;gap:3px;width:min(100%,480px);aspect-ratio:720/480;background:#1B2A41;padding:3px;border-radius:14px}
+.pz button{border:0;padding:0;background-repeat:no-repeat;cursor:pointer;border-radius:6px;transition:outline .1s}
+.pz button.pick{outline:4px solid var(--gold);outline-offset:-4px;filter:brightness(1.15)}
+.pz.solved{gap:0;padding:0}
+.pz.solved button{border-radius:0}
+
+/* pacto */
+.vals{display:flex;flex-wrap:wrap;gap:8px}
+.vals button{border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;font:700 16px var(--display);cursor:pointer}
+.vals button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+textarea.input{min-height:110px;resize:vertical;font-weight:600;font-size:18px}
+
+.certbox{background:#fff;border-radius:18px;border:2px solid var(--line);overflow:auto;margin-top:16px}
+.certbox > svg{display:block;width:100%;height:auto;min-width:640px}
+details.teacher{margin-top:22px}
+details.teacher summary{cursor:pointer;font:700 17px var(--display)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}
+.tbl td,.tbl th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);background:#1B2A41;color:#fff;padding:12px 20px;border-radius:16px;font:700 17px var(--display);z-index:50;transition:transform .3s,opacity .3s;box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:90vw;text-align:center;opacity:0;pointer-events:none}
+#toast.on{transform:translate(-50%,0);opacity:1}
+.center{text-align:center}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media print{
+  body *{visibility:hidden}
+  .certbox,.certbox *{visibility:visible}
+  .certbox{position:absolute;left:0;top:0;width:100%;border:0}
+  .certbox > svg{min-width:0}
+  @page{size:landscape;margin:8mm}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header id="top" hidden><div class="band"></div><div class="inner"></div></header>
+<main id="app" class="wrap"></main>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/*__ASSETS__*/
+</script>
+<script>
+"use strict";
+/* ============ utilidades ============ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const YT = q => 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q);
+function shade(hex, amt) {
+  const n = parseInt(hex.slice(1), 16);
+  let r = n >> 16, g = (n >> 8) & 255, b = n & 255;
+  r = Math.max(0, Math.min(255, Math.round(r * (1 - amt))));
+  g = Math.max(0, Math.min(255, Math.round(g * (1 - amt))));
+  b = Math.max(0, Math.min(255, Math.round(b * (1 - amt))));
+  return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+let uidN = 0; const uid = () => 'u' + (++uidN);
+
+/* ============ datos ============ */
+const SKINS = ['#FBE0CB', '#F1C27D', '#E0AC69', '#C68642', '#8D5524', '#5C3A21'];
+const EYES = [['Café', '#6B3E26'], ['Negros', '#2B1B12'], ['Miel', '#B7791F'], ['Verdes', '#4E8A3E'], ['Azules', '#3B7DD8']];
+const HAIRS = [['Negro', '#1E1A18'], ['Castaño oscuro', '#3E2723'], ['Castaño', '#7B4B34'], ['Rubio', '#D9B24C'], ['Pelirrojo', '#B5502B'], ['Morado', '#7C4DBE']];
+const STYLES = [['corto', 'Corto'], ['rizado', 'Rizado'], ['afro', 'Afro'], ['largo', 'Largo'], ['trenzas', 'Trenzas'], ['coletas', 'Coletas'], ['mono', 'Moño']];
+const SHIRTS = ['#0E8C98', '#D7263D', '#F4B400', '#6C4AB6', '#2E8B57', '#1F6FB2'];
+
+const COMPANIONS = {
+  inti: { name: 'Inti Jojoa', role: 'Niño indígena Quillacinga', from: 'El Encano, Laguna de la Cocha',
+    say: 'Mi pueblo quillacinga cuida la laguna como a una madre. Te enseñaré las palabras de mi tierra.',
+    look: { gender: 'nino', skin: '#C68642', eyes: '#2B1B12', hair: '#1E1A18', style: 'largo', shirt: '#2E8B57', acc: 'ruana' } },
+  yeison: { name: 'Yeison Quiñones', role: 'Niño afro del Pacífico', from: 'Tumaco, costa pacífica de Nariño',
+    say: 'En Tumaco suena la marimba de chonta y bailamos currulao. ¡Vamos a recorrer Nariño juntos!',
+    look: { gender: 'nino', skin: '#5C3A21', eyes: '#2B1B12', hair: '#1E1A18', style: 'afro', shirt: '#F4B400', acc: 'none' } },
+  valentina: { name: 'Valentina Burbano', role: 'Niña mestiza de Pasto', from: 'Barrio San Andrés, Pasto',
+    say: 'Soy pastusa de corazón. Me encanta el Carnaval de Negros y Blancos y el helado de paila.',
+    look: { gender: 'nina', skin: '#F1C27D', eyes: '#6B3E26', hair: '#7B4B34', style: 'coletas', shirt: '#D7263D', acc: 'none' } },
+  samuel: { name: 'Samuel Guerrero', role: 'Niño del Liceo Maridíaz', from: 'Liceo De La Merced Maridíaz',
+    say: 'Estudio en el Liceo Maridíaz, como tú. En mi salón aprendimos que nadie se queda por fuera.',
+    look: { gender: 'nino', skin: '#E0AC69', eyes: '#6B3E26', hair: '#3E2723', style: 'corto', shirt: '#1B3A6B', acc: 'uniforme' } }
+};
+
+const QUIZ = [
+  'Me gusta conocer costumbres diferentes a las mías.',
+  'Alguna vez me he burlado de un compañero por su forma de hablar, vestir o pensar.',
+  'Cuando alguien es diferente a mí, prefiero no acercarme.',
+  'Escucho con atención las opiniones de mis compañeros, aunque piensen distinto a mí.',
+  'Me gustaría aprender más sobre las culturas de mi región.',
+  'En mi salón, todos los compañeros son tratados con respeto sin importar de dónde vengan.',
+  'Alguna vez he visto que le ponen apodos a un compañero por su forma de ser.',
+  'Cuando trabajo en equipo, incluyo a compañeros con los que casi no hablo.',
+  'Me incomoda cuando alguien habla, viste o piensa muy diferente a mí.',
+  'Creo que puedo aprender algo valioso de cada uno de mis compañeros.'
+];
+const QANS = [['Sí', '👍'], ['A veces', '🤔'], ['No', '👎']];
+
+const CONCEPTS = [
+  { t: 'Interculturalidad', c: '#0F7A6C', icon: 'globe', d: 'Es el encuentro entre personas de culturas, costumbres y formas de pensar diferentes, en el que todas aprenden y se enriquecen mutuamente mediante el diálogo y el respeto.', s: 'UNESCO (2021)' },
+  { t: 'Respeto por la diversidad', c: '#D9772B', icon: 'pair', d: 'Es aceptar y valorar la forma de hablar, vestir, pensar o creer de cada persona, sin burlarnos ni excluir a nadie por ser diferente.', s: 'UNESCO (2006)' },
+  { t: 'Convivencia', c: '#6C4AB6', icon: 'group', d: 'Es el conjunto de relaciones que construimos cada día en el salón: cómo nos comunicamos, participamos, colaboramos y resolvemos nuestras diferencias con respeto.', s: 'Betancourth Zambrano et al. (2021)' },
+  { t: 'OVA', c: '#D6457A', icon: 'screen', d: 'Es un recurso digital, como este mismo, diseñado con una intención educativa clara para ayudarte a aprender de forma interactiva y significativa.', s: 'Ministerio de Educación Nacional' }
+];
+
+const ZONE_ORDER = ['cocha', 'lajas', 'pasto', 'carnaval', 'galeras'];
+const ZONE_META = {
+  cocha: { n: 'Laguna de la Cocha', short: 'La Cocha', badge: '🌊', color: '#1F6FB2', game: 'Sopa de letras' },
+  lajas: { n: 'Santuario de Las Lajas', short: 'Las Lajas', badge: '🌉', color: '#6C4AB6', game: 'Crucigrama' },
+  pasto: { n: 'San Juan de Pasto', short: 'Pasto', badge: '🏛️', color: '#0E8C98', game: 'Platos y barniz' },
+  carnaval: { n: 'Carnaval de Negros y Blancos', short: 'Carnaval', badge: '🎭', color: '#D7263D', game: 'Rompecabezas' },
+  galeras: { n: 'Volcán Galeras', short: 'Galeras', badge: '🌋', color: '#8A3B2A', game: 'Gran Pacto' }
+};
+
+/* ============ estado ============ */
+const KEY = 'caminantes-galeras-v1';
+function fresh() {
+  return { step: 'avatar', player: { gender: 'nino', skin: SKINS[2], eyes: '#6B3E26', hair: '#1E1A18', style: 'corto', shirt: '#0E8C98', name: '' },
+    companion: null, quiz: Array(10).fill(null), qi: 0, flipped: [], z: {}, done: [], points: 0, awarded: {}, pact: { text: '', values: [] }, finishedAt: null };
+}
+let S;
+try { S = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { S = null; }
+const hadSaved = !!(S && S.player && S.player.name);
+if (!S || !S.player) S = fresh();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+function zs(id) { return S.z[id] || (S.z[id] = { q: {}, game: false, extra: {} }); }
+
+let toastT;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2300); }
+function award(key, pts, msg) {
+  if (S.awarded[key]) return false;
+  S.awarded[key] = 1; S.points += pts; save(); renderTop();
+  toast((msg ? msg + ' ' : '') + '+' + pts + ' ⭐');
+  return true;
+}
+
+/* ============ avatar SVG ============ */
+function avatarInner(o, id) {
+  const skin = o.skin, sk2 = shade(skin, .13), hc = o.hair, hc2 = shade(hc, .25), girl = o.gender === 'nina', st = o.style;
+  let back = '', front = '', extra = '', body = '';
+  // cabello posterior
+  if (st === 'afro') back = `<circle cx="100" cy="84" r="64" fill="${hc}"/><circle cx="64" cy="66" r="10" fill="${hc2}" opacity=".35"/><circle cx="130" cy="58" r="8" fill="${hc2}" opacity=".35"/>`;
+  if (st === 'largo') back = `<path d="M56 92 Q52 176 64 186 L136 186 Q148 176 144 92 Q140 40 100 40 Q60 40 56 92Z" fill="${hc}"/>`;
+  if (st === 'trenzas') { let b = ''; for (let i = 0; i < 5; i++) { b += `<ellipse cx="54" cy="${118 + i * 14}" rx="10" ry="9" fill="${i % 2 ? hc2 : hc}"/><ellipse cx="146" cy="${118 + i * 14}" rx="10" ry="9" fill="${i % 2 ? hc2 : hc}"/>`; } back = `<path d="M58 100 Q56 46 100 44 Q144 46 142 100Z" fill="${hc}"/>` + b + `<circle cx="54" cy="188" r="6" fill="#D7263D"/><circle cx="146" cy="188" r="6" fill="#D7263D"/>`; }
+  if (st === 'coletas') back = `<ellipse cx="46" cy="96" rx="20" ry="26" fill="${hc}"/><ellipse cx="154" cy="96" rx="20" ry="26" fill="${hc}"/><circle cx="60" cy="80" r="6" fill="#F4B400"/><circle cx="140" cy="80" r="6" fill="#F4B400"/>`;
+  if (st === 'mono') back = `<circle cx="100" cy="36" r="20" fill="${hc}"/><rect x="86" y="50" width="28" height="6" rx="3" fill="#0E8C98"/>`;
+  if (st === 'rizado') { let b = ''; const pts = [[62, 78], [70, 58], [86, 46], [104, 42], [122, 48], [136, 60], [142, 80], [58, 98], [144, 98]]; pts.forEach(p => b += `<circle cx="${p[0]}" cy="${p[1]}" r="15" fill="${hc}"/>`); back = b; }
+  // cuerpo
+  body = `<rect x="88" y="124" width="24" height="26" rx="8" fill="${sk2}"/>
+    <path d="M30 206 Q34 150 100 144 Q166 150 170 206Z" fill="${o.shirt}"/>
+    <path d="M84 146 Q100 160 116 146" fill="none" stroke="${shade(o.shirt, .25)}" stroke-width="4"/>`;
+  if (o.acc === 'ruana') body += `<path d="M30 206 Q34 156 100 148 Q166 156 170 206Z" fill="#8B5A2B"/><path d="M40 188 H160 M36 198 H164" stroke="#F4B400" stroke-width="4"/><path d="M44 178 H156" stroke="#D7263D" stroke-width="4"/><path d="M86 150 L100 166 L114 150" fill="${sk2}"/>`;
+  if (o.acc === 'uniforme') body += `<path d="M84 146 L100 164 L116 146 L112 144 L100 156 L88 144Z" fill="#fff"/><path d="M96 160 L100 158 L104 160 L106 190 L100 196 L94 190Z" fill="#D7263D"/><circle cx="130" cy="176" r="8" fill="#F4B400"/>`;
+  // cabeza
+  const head = `<circle cx="59" cy="100" r="9" fill="${skin}"/><circle cx="141" cy="100" r="9" fill="${skin}"/>
+    <ellipse cx="100" cy="94" rx="42" ry="46" fill="${skin}"/>`;
+  // cabello frontal
+  if (st === 'corto') front = `<path d="M58 92 Q54 44 100 42 Q146 44 142 92 Q136 66 112 62 Q96 72 78 64 Q62 70 58 92Z" fill="${hc}"/>`;
+  else if (st === 'rizado') front = `<path d="M60 86 Q60 50 100 48 Q140 50 140 86 Q126 66 100 66 Q74 66 60 86Z" fill="${hc}"/><circle cx="78" cy="64" r="9" fill="${hc2}" opacity=".5"/><circle cx="118" cy="62" r="9" fill="${hc2}" opacity=".5"/>`;
+  else if (st === 'afro') front = `<path d="M60 84 Q70 58 100 60 Q130 58 140 84 Q142 52 100 44 Q58 52 60 84Z" fill="${hc}"/>`;
+  else front = `<path d="M57 100 Q52 46 100 44 Q148 46 143 100 Q140 70 120 62 Q104 78 76 70 Q62 78 57 100Z" fill="${hc}"/>`;
+  if (o.acc === 'ruana' && o.style === 'largo') extra += `<rect x="58" y="62" width="84" height="10" rx="5" fill="#D7263D"/><path d="M64 67 h8 M80 67 h8 M96 67 h8 M112 67 h8 M128 67 h8" stroke="#F4B400" stroke-width="4"/>`;
+  // cara
+  const eye = (x) => `<ellipse cx="${x}" cy="98" rx="9" ry="10.5" fill="#fff"/><circle cx="${x}" cy="99" r="6.4" fill="${o.eyes}"/><circle cx="${x}" cy="99" r="3" fill="#111"/><circle cx="${x + 2.2}" cy="96.4" r="1.8" fill="#fff"/>`;
+  const lashes = girl ? `<path d="M74 89 l-4 -4 M78 87 l-2 -5 M122 87 l2 -5 M126 89 l4 -4" stroke="#222" stroke-width="2" stroke-linecap="round"/>` : '';
+  const face = `${eye(84)}${eye(116)}${lashes}
+    <path d="M74 ${girl ? 82 : 83} Q84 ${girl ? 77 : 78} 94 82" stroke="${shade(hc, .1)}" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M106 82 Q116 ${girl ? 77 : 78} 126 ${girl ? 82 : 83}" stroke="${shade(hc, .1)}" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M98 104 Q100 110 103 106" stroke="${sk2}" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <ellipse cx="74" cy="112" rx="8" ry="5" fill="#F07C7C" opacity=".35"/><ellipse cx="126" cy="112" rx="8" ry="5" fill="#F07C7C" opacity=".35"/>
+    <path d="M86 118 Q100 132 114 118 Q100 124 86 118Z" fill="#8E2F3A"/><path d="M90 120 Q100 124 110 120" fill="#fff" opacity=".85"/>`;
+  return `<defs><clipPath id="${id}"><circle cx="100" cy="100" r="98"/></clipPath></defs>
+    <circle cx="100" cy="100" r="98" fill="${o.bg || '#D6ECF3'}"/>
+    <g clip-path="url(#${id})">${back}${body}${head}${front}${extra}${face}</g>`;
+}
+function avatarSVG(o, cls = '') { const id = uid(); return `<svg class="${cls}" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avatar">${avatarInner(o, id)}</svg>`; }
+
+/* ============ barra superior ============ */
+function renderTop() {
+  const top = $('#top');
+  const show = !!S.player.name && S.step !== 'avatar';
+  top.hidden = !show;
+  if (!show) return;
+  const comp = S.companion ? COMPANIONS[S.companion].name.split(' ')[0] : '';
+  $('.inner', top).innerHTML = `
+    <div class="who">${avatarSVG(S.player)}<span>${esc(S.player.name)}${comp ? ' <span class="muted" style="font-weight:700">y ' + esc(comp) + '</span>' : ''}</span></div>
+    <div class="stats">
+      <span class="pill" title="Puntos de empatía">⭐ ${S.points}</span>
+      <span class="pill" title="Insignias">🏅 ${S.done.length}/5</span>
+      ${['map', 'zone', 'pact', 'cert'].includes(S.step.split(':')[0]) ? '<button class="btn ghost small" data-go="map">🗺️ Mapa</button>' : ''}
+    </div>`;
+}
+
+/* ============ navegación ============ */
+function stopMedia() { try { speechSynthesis.cancel(); } catch (e) {} $$('video').forEach(v => { try { v.pause(); } catch (e) {} }); MV.forEach(m => m.stop()); MV = []; }
+function go(step) { stopMedia(); S.step = step; save(); render(); window.scrollTo({ top: 0 }); }
+document.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b && !b.disabled) { e.preventDefault(); go(b.dataset.go); } });
+
+function render() {
+  renderTop();
+  const [scr, arg] = S.step.split(':');
+  const app = $('#app');
+  ({ avatar: scrAvatar, companion: scrCompanion, quiz: scrQuiz, learn: scrLearn, map: scrMap, zone: scrZone, pact: scrPact, cert: scrCert }[scr] || scrAvatar)(app, arg);
+}
+
+/* ============ 1. crear avatar ============ */
+function scrAvatar(app) {
+  const p = S.player;
+  const sw = (key, val, label) => `<button class="sw" style="background:${val}" data-k="${key}" data-v="${val}" aria-label="${label}" aria-pressed="${p[key] === val}"></button>`;
+  app.innerHTML = `
+    <div class="band" style="border-radius:8px;margin-bottom:18px"></div>
+    <h1>Crea tu caminante</h1>
+    <p class="lead">Así te verán en la aventura por Nariño. Elige tus colores, tu peinado y escribe tu nombre.</p>
+    ${hadSaved && S.step === 'avatar' && S.done !== undefined && S.quiz.some(x => x !== null) ? `<div class="panel" style="margin-top:6px"><div class="row"><strong>¿Eres ${esc(S.player.name)}?</strong><button class="btn small" id="resume">Seguir mi aventura</button><button class="btn ghost small" id="newp">Soy otro estudiante</button></div></div>` : ''}
+    <div class="creator">
+      <div class="preview"><div id="pv"></div><div class="nm" id="pvn"></div></div>
+      <div>
+        <div class="opt"><span class="lbl">Soy</span>
+          <div class="seg" role="group" aria-label="Soy"><button data-k="gender" data-v="nino" aria-pressed="${p.gender === 'nino'}">👦 Niño</button><button data-k="gender" data-v="nina" aria-pressed="${p.gender === 'nina'}">👧 Niña</button></div></div>
+        <div class="opt"><span class="lbl">Color de piel</span><div class="sws">${SKINS.map((c, i) => sw('skin', c, 'Tono de piel ' + (i + 1))).join('')}</div></div>
+        <div class="opt"><span class="lbl">Color de ojos</span><div class="sws">${EYES.map(([n, c]) => sw('eyes', c, 'Ojos ' + n)).join('')}</div></div>
+        <div class="opt"><span class="lbl">Color de cabello</span><div class="sws">${HAIRS.map(([n, c]) => sw('hair', c, 'Cabello ' + n)).join('')}</div></div>
+        <div class="opt"><span class="lbl">Peinado</span><div class="sws" id="styles"></div></div>
+        <div class="opt"><span class="lbl">Color de camiseta</span><div class="sws">${SHIRTS.map((c, i) => sw('shirt', c, 'Camiseta ' + (i + 1))).join('')}</div></div>
+        <div class="opt"><label class="lbl" for="nm">¿Cómo te llamas?</label>
+          <input class="input" id="nm" maxlength="30" autocomplete="off" placeholder="Escribe tu nombre" value="${esc(p.name)}">
+          <div class="hint" id="nmh">Tu nombre aparecerá en tu certificado.</div></div>
+        <button class="btn gold" id="start" style="width:100%;margin-top:6px">¡Empezar la aventura!</button>
+      </div>
+    </div>`;
+  const paintStyles = () => {
+    $('#styles').innerHTML = STYLES.map(([k, n]) => `<button class="chip" data-k="style" data-v="${k}" aria-pressed="${p.style === k}">${avatarSVG({ ...p, style: k, bg: '#EAF3F7' })}${n}</button>`).join('');
+  };
+  const paint = () => {
+    $('#pv').innerHTML = avatarSVG(p);
+    $('#pvn').textContent = p.name || 'Tu nombre';
+    $$('[data-k]', app).forEach(b => { if (b.dataset.k !== 'style') b.setAttribute('aria-pressed', p[b.dataset.k] === b.dataset.v); });
+    paintStyles();
+  };
+  $('.creator', app).addEventListener('click', e => {
+    const b = e.target.closest('[data-k]'); if (!b) return;
+    p[b.dataset.k] = b.dataset.v; save(); paint();
+  });
+  $('#nm').addEventListener('input', e => { p.name = e.target.value.trimStart(); $('#pvn').textContent = p.name || 'Tu nombre'; save(); });
+  $('#start').addEventListener('click', () => {
+    p.name = p.name.trim();
+    if (p.name.length < 2) { $('#nmh').textContent = 'Escribe tu nombre para poder empezar.'; $('#nmh').style.color = 'var(--red)'; $('#nm').focus(); return; }
+    go(S.companion ? (S.done.length ? 'map' : 'companion') : 'companion');
+  });
+  const r = $('#resume'); if (r) r.onclick = () => go(S.companion && S.quiz.every(x => x !== null) ? 'map' : 'companion');
+  const n = $('#newp'); if (n) n.onclick = () => { S = fresh(); save(); go('avatar'); };
+  paint();
+}
+
+/* ============ 2. elegir compañero ============ */
+function scrCompanion(app) {
+  app.innerHTML = `
+    <section class="hero"><div class="in">
+      <h1>⛰️ Caminantes del Galeras: Interculturalidad y Convivencia</h1>
+      <div class="sub">Liceo De La Merced Maridíaz | Grado 4-2 | Pasto, Nariño</div>
+    </div>
+    <svg class="mnt" viewBox="0 0 1000 110" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 110 L0 70 L140 40 L260 72 L380 30 L470 60 L560 18 L620 12 L680 22 L760 56 L880 36 L1000 64 L1000 110Z" fill="#2E8B57"/>
+      <path d="M0 110 L0 90 L200 70 L420 92 L640 66 L820 88 L1000 76 L1000 110Z" fill="#1E6440"/>
+      <path d="M598 16 Q610 -2 626 8 Q640 -6 650 10" stroke="#fff" stroke-width="4" fill="none" opacity=".7"/>
+    </svg></section>
+    <div class="guide">${avatarSVG(S.player)}<div class="bubble">¡Hola, ${esc(S.player.name)}! Hoy vamos a recorrer Nariño para aprender sobre nuestras raíces, decirle adiós a las burlas y a los apodos, y convivir mejor en el 4-2. Primero, elige a tu compañero de viaje.</div></div>
+    <h2>Elige a tu compañero de viaje</h2>
+    <div class="comp-grid">${Object.entries(COMPANIONS).map(([k, c]) => `
+      <button class="comp" data-c="${k}" aria-pressed="${S.companion === k}">
+        ${avatarSVG(c.look)}<div class="n">${c.name}</div><div class="r">${c.role}</div><div class="hint">${c.from}</div>
+      </button>`).join('')}</div>
+    <div class="panel" id="csay" ${S.companion ? '' : 'hidden'}></div>
+    <div class="spread"><button class="btn ghost" data-go="avatar">Atrás</button><button class="btn gold" id="go" ${S.companion ? '' : 'disabled'}>Iniciar la misión</button></div>`;
+  const showSay = () => {
+    const c = COMPANIONS[S.companion]; const box = $('#csay'); box.hidden = false;
+    box.innerHTML = `<div class="guide" style="margin:0">${avatarSVG(c.look)}<div class="bubble">“${c.say}”<br><span class="muted">— ${c.name}</span></div></div>`;
+  };
+  $$('.comp', app).forEach(b => b.onclick = () => {
+    S.companion = b.dataset.c; save();
+    $$('.comp', app).forEach(x => x.setAttribute('aria-pressed', x === b)); $('#go').disabled = false; showSay(); renderTop();
+  });
+  if (S.companion) showSay();
+  $('#go').onclick = () => go(S.quiz.every(x => x !== null) ? 'learn' : 'quiz');
+}
+
+/* ============ 3. cuestionario ============ */
+function scrQuiz(app) {
+  const i = Math.min(S.qi || 0, 9);
+  const doneAll = S.quiz.every(x => x !== null);
+  app.innerHTML = `
+    <h1 class="center">Descubriendo Juntos</h1>
+    <p class="lead center" style="margin:0 auto">Objeto Virtual de Aprendizaje sobre interculturalidad, respeto por la diversidad y convivencia para estudiantes de básica primaria</p>
+    <div class="panel qcard">
+      <h3>Antes de empezar...</h3>
+      <p class="muted">Responde con toda sinceridad. Aquí no hay respuestas buenas ni malas: esto es solo para pensar un poco en ti mismo.</p>
+      <div class="qnum">Pregunta ${i + 1} de 10</div>
+      <div class="bar"><i style="width:${(S.quiz.filter(x => x !== null).length) * 10}%"></i></div>
+      <div class="qtext">${i + 1}. ${QUIZ[i]}</div>
+      <div class="answers">${QANS.map(([t, e], k) => `<button class="ans" data-a="${k}" aria-pressed="${S.quiz[i] === k}"><span class="e">${e}</span>${t}</button>`).join('')}</div>
+      <div class="spread">
+        <button class="btn ghost" id="prev">${i === 0 ? 'Atrás' : 'Anterior'}</button>
+        <button class="btn gold" id="fin" ${doneAll ? '' : 'hidden'}>Terminé</button>
+      </div>
+    </div>`;
+  $$('.ans', app).forEach(b => b.onclick = () => {
+    S.quiz[i] = +b.dataset.a; save();
+    $$('.ans', app).forEach(x => x.setAttribute('aria-pressed', x === b));
+    setTimeout(() => {
+      if (S.quiz.every(x => x !== null) && i === 9) { finishQuiz(); return; }
+      const nxt = S.quiz.findIndex((x, k) => x === null && k > i);
+      S.qi = nxt >= 0 ? nxt : Math.min(i + 1, 9); save(); scrQuiz(app);
+    }, 280);
+  });
+  $('#prev').onclick = () => { if (i === 0) go('companion'); else { S.qi = i - 1; save(); scrQuiz(app); } };
+  $('#fin').onclick = finishQuiz;
+  function finishQuiz() { award('quiz', 10, '¡Gracias por tu sinceridad!'); go('learn'); }
+}
+
+/* ============ 4. aprendamos juntos ============ */
+const ICONS = {
+  globe: c => `<svg viewBox="0 0 60 60" width="64" height="64"><circle cx="30" cy="30" r="24" fill="none" stroke="${c}" stroke-width="3.5"/><ellipse cx="30" cy="30" rx="11" ry="24" fill="none" stroke="${c}" stroke-width="3"/><path d="M7 22h46M7 38h46" stroke="${c}" stroke-width="3"/><circle cx="20" cy="18" r="4" fill="#F4B400"/><circle cx="41" cy="24" r="4" fill="#6C4AB6"/><circle cx="23" cy="40" r="4" fill="#D7263D"/><circle cx="40" cy="42" r="4" fill="#0E8C98"/></svg>`,
+  pair: c => `<svg viewBox="0 0 60 60" width="64" height="64"><circle cx="20" cy="20" r="7" fill="#D9772B"/><path d="M6 48 Q8 30 20 30 Q32 30 32 48Z" fill="#D9772B"/><circle cx="41" cy="18" r="7" fill="#0F7A6C"/><path d="M28 48 Q30 28 41 28 Q54 28 55 48Z" fill="#0F7A6C"/><circle cx="30" cy="38" r="3.4" fill="#F4B400"/></svg>`,
+  group: c => `<svg viewBox="0 0 60 60" width="64" height="64"><circle cx="14" cy="24" r="6" fill="#6C4AB6"/><path d="M3 48 Q5 32 14 32 Q23 32 25 48Z" fill="#6C4AB6"/><circle cx="30" cy="19" r="7" fill="#D9772B"/><path d="M18 48 Q20 28 30 28 Q40 28 42 48Z" fill="#D9772B"/><circle cx="46" cy="24" r="6" fill="#0F7A6C"/><path d="M35 48 Q37 32 46 32 Q55 32 57 48Z" fill="#0F7A6C"/></svg>`,
+  screen: c => `<svg viewBox="0 0 60 60" width="64" height="64"><rect x="9" y="9" width="42" height="34" rx="5" fill="#FCE4EE" stroke="${c}" stroke-width="3.5"/><path d="M25 18 L38 26 L25 34Z" fill="${c}"/><path d="M22 51h16M30 43v8" stroke="${c}" stroke-width="3.5" stroke-linecap="round"/></svg>`
+};
+function scrLearn(app) {
+  app.innerHTML = `
+    <h1>Aprendamos juntos</h1>
+    <p class="lead">Toca cada tarjeta para descubrir qué significa cada palabra. Son las cuatro ideas que nos acompañarán en todo el viaje.</p>
+    <div class="flip-grid">${CONCEPTS.map((c, i) => `
+      <button class="flip" data-i="${i}" aria-pressed="${S.flipped.includes(i)}" aria-label="${c.t}">
+        <div class="in"><div class="f">${ICONS[c.icon](c.c)}<b>${c.t}</b><small>Toca para descubrir</small></div>
+        <div class="b" style="background:${c.c}">${c.d}<cite>— ${c.s}</cite></div></div>
+      </button>`).join('')}</div>
+    <p class="hint" id="lh" style="margin-top:12px">${S.flipped.length}/4 tarjetas descubiertas</p>
+    <div class="spread"><button class="btn ghost" data-go="quiz">Atrás</button><button class="btn gold" data-go="map">Ver el mapa del viaje</button></div>`;
+  $$('.flip', app).forEach(b => b.onclick = () => {
+    const i = +b.dataset.i, on = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', on);
+    if (on && !S.flipped.includes(i)) S.flipped.push(i);
+    save(); $('#lh').textContent = S.flipped.length + '/4 tarjetas descubiertas';
+    if (S.flipped.length === 4) award('learn', 20, '¡Descubriste las 4 ideas!');
+  });
+}
+
+/* ============ 5. mapa ============ */
+const STOPS = { cocha: [175, 500], lajas: [305, 300], pasto: [525, 430], carnaval: [705, 300], galeras: [850, 150] };
+function mapArt() {
+  return `
+  <defs>
+    <linearGradient id="msky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BD4F0"/><stop offset=".55" stop-color="#D3EFE0"/><stop offset="1" stop-color="#B9DFA8"/></linearGradient>
+    <linearGradient id="mlake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FA3D9"/><stop offset="1" stop-color="#1F6FB2"/></linearGradient>
+    <linearGradient id="mvol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A4A3A"/><stop offset="1" stop-color="#4E6B3A"/></linearGradient>
+  </defs>
+  <rect width="1000" height="620" fill="url(#msky)"/>
+  <path d="M0 330 L120 250 L230 300 L340 220 L450 280 L560 210 L660 260 L740 200 L1000 290 L1000 620 L0 620Z" fill="#8FC88A" opacity=".55"/>
+  <path d="M0 400 L160 340 L330 390 L520 330 L700 380 L1000 330 L1000 620 L0 620Z" fill="#7DBB6E"/>
+  <!-- Galeras -->
+  <path d="M700 330 L800 110 Q850 88 900 112 L1000 330Z" fill="url(#mvol)"/>
+  <path d="M800 110 Q850 88 900 112 L880 132 Q850 118 820 132Z" fill="#5A2E22"/>
+  <g fill="#fff" opacity=".85"><circle cx="846" cy="80" r="16"/><circle cx="866" cy="62" r="20"/><circle cx="892" cy="44" r="24"/><circle cx="924" cy="30" r="18"/></g>
+  <!-- frailejones -->
+  <g fill="#9DB36B">${[[640, 360], [668, 372], [940, 360], [965, 376]].map(p => `<rect x="${p[0] - 3}" y="${p[1] - 26}" width="6" height="26" fill="#6B5A3A"/><circle cx="${p[0]}" cy="${p[1] - 30}" r="11"/>`).join('')}</g>
+  <!-- Laguna de la Cocha -->
+  <ellipse cx="170" cy="535" rx="160" ry="62" fill="url(#mlake)"/>
+  <ellipse cx="205" cy="532" rx="26" ry="11" fill="#3E8B4A"/><circle cx="198" cy="524" r="6" fill="#2E6B3A"/><circle cx="212" cy="523" r="7" fill="#2E6B3A"/>
+  <path d="M70 548 q12 -6 24 0 M120 566 q12 -6 24 0 M250 560 q12 -6 24 0" stroke="#BFE3F7" stroke-width="3" fill="none"/>
+  <g transform="translate(96 505)"><path d="M0 10 L40 10 L34 18 L6 18Z" fill="#D7263D"/><rect x="12" y="2" width="16" height="8" fill="#F4B400"/></g>
+  <!-- Las Lajas: cañón, puente y santuario -->
+  <path d="M225 390 L250 250 L280 250 L290 390Z" fill="#8C7A66"/><path d="M325 390 L330 250 L360 250 L385 390Z" fill="#8C7A66"/>
+  <path d="M290 390 Q305 330 325 390" fill="#3E7FB8"/>
+  <path d="M258 262 H352 V282 Q305 250 258 282Z" fill="#C9C1B4"/>
+  <g fill="#D8D2C6" stroke="#9A9083" stroke-width="2"><rect x="286" y="206" width="38" height="56"/><path d="M280 208 L305 176 L330 208Z"/><rect x="274" y="196" width="10" height="66"/><rect x="326" y="196" width="10" height="66"/><path d="M272 198 L279 170 L286 198Z"/><path d="M324 198 L331 170 L338 198Z"/></g>
+  <circle cx="305" cy="222" r="6" fill="#6C4AB6"/>
+  <!-- San Juan de Pasto -->
+  <g transform="translate(455 360)">
+    <rect x="0" y="40" width="30" height="50" fill="#F2E2C4"/><rect x="34" y="22" width="36" height="68" fill="#E7C9A0"/><rect x="110" y="30" width="34" height="60" fill="#F2E2C4"/>
+    <rect x="72" y="16" width="36" height="74" fill="#fff" stroke="#C9B89B" stroke-width="2"/><path d="M72 16 L90 -6 L108 16Z" fill="#D7263D"/><rect x="84" y="-24" width="12" height="20" fill="#fff" stroke="#C9B89B" stroke-width="2"/><path d="M82 -24 L90 -36 L98 -24Z" fill="#D7263D"/>
+    <g fill="#8FB3D9">${[[6, 50], [18, 50], [40, 32], [56, 32], [40, 52], [56, 52], [116, 40], [130, 40], [116, 60], [130, 60]].map(p => `<rect x="${p[0]}" y="${p[1]}" width="8" height="10"/>`).join('')}</g>
+    <rect x="84" y="62" width="12" height="28" rx="6" fill="#7B4B34"/>
+  </g>
+  <!-- Carnaval -->
+  <g transform="translate(640 250)">
+    <rect x="10" y="70" width="120" height="26" rx="8" fill="#6C4AB6"/><circle cx="30" cy="100" r="10" fill="#1B2A41"/><circle cx="110" cy="100" r="10" fill="#1B2A41"/>
+    <circle cx="70" cy="42" r="30" fill="#F4B400"/><circle cx="60" cy="38" r="5" fill="#1B2A41"/><circle cx="80" cy="38" r="5" fill="#1B2A41"/><path d="M56 52 Q70 64 84 52" stroke="#D7263D" stroke-width="5" fill="none"/>
+    <path d="M40 18 L50 0 L60 16 L70 -4 L80 16 L90 0 L100 18Z" fill="#D7263D"/>
+    <g>${[[0, 10, '#D7263D'], [128, 20, '#0E8C98'], [14, 50, '#2E8B57'], [140, 60, '#F4B400'], [-6, 34, '#6C4AB6'], [120, 0, '#D7263D']].map(p => `<rect x="${p[0]}" y="${p[1]}" width="8" height="8" fill="${p[2]}" transform="rotate(25 ${p[0]} ${p[1]})"/>`).join('')}</g>
+  </g>
+  <path d="M175 500 C 215 420, 250 360, 305 300 S 460 470, 525 430 S 650 320, 705 300 S 800 220, 850 150" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".7"/>
+  <path d="M175 500 C 215 420, 250 360, 305 300 S 460 470, 525 430 S 650 320, 705 300 S 800 220, 850 150" fill="none" stroke="#8A5A2B" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round"/>`;
+}
+function scrMap(app) {
+  const next = S.done.length;
+  app.innerHTML = `
+    <h1>🗺️ El camino del Galeras</h1>
+    <p class="lead">Recorre las cinco estaciones en orden. En cada una verás un video, jugarás y pensarás cómo convivir mejor. Al llegar a la cumbre del Galeras recibirás tu certificado.</p>
+    <div class="guide">${avatarSVG(COMPANIONS[S.companion].look)}<div class="bubble">${next === 0 ? '¡Vamos! Empezamos en la Laguna de la Cocha.' : next < 5 ? '¡Muy bien! La próxima estación es ' + ZONE_META[ZONE_ORDER[next]].n + '.' : '¡Lo logramos! Ya llegamos a la cumbre.'}</div></div>
+    <div class="mapbox">
+      <svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Mapa del recorrido">
+        ${mapArt()}
+        ${ZONE_ORDER.map((z, i) => {
+          const [x, y] = STOPS[z], m = ZONE_META[z], done = S.done.includes(z), locked = i > next, cur = i === next;
+          const fill = done ? '#F4B400' : locked ? '#9AA7B6' : m.color;
+          const lw = m.n.length * 9.2 + 26;
+          return `<g class="stop ${locked ? 'locked' : ''}" data-z="${z}" tabindex="${locked ? -1 : 0}" role="button" aria-label="${i + 1}. ${m.n}${done ? ', completada' : locked ? ', bloqueada' : ''}">
+            ${cur ? `<circle class="halo" cx="${x}" cy="${y}" r="40" fill="${m.color}" opacity=".5"/>` : ''}
+            <g class="pin"><circle class="ring" cx="${x}" cy="${y}" r="34" fill="${fill}" stroke="#fff" stroke-width="6"/>
+            <text x="${x}" y="${y + 11}" text-anchor="middle" font-family="Baloo 2, Nunito, sans-serif" font-size="32" font-weight="800" fill="#fff">${done ? '✓' : locked ? '🔒' : i + 1}</text></g>
+            <rect x="${x - lw / 2}" y="${y + 42}" width="${lw}" height="32" rx="16" fill="#fff" stroke="${fill}" stroke-width="3"/>
+            <text x="${x}" y="${y + 64}" text-anchor="middle" font-family="Baloo 2, Nunito, sans-serif" font-size="17" font-weight="700" fill="#1B2A41">${m.n}</text>
+          </g>`;
+        }).join('')}
+      </svg>
+      <div class="legend">${ZONE_ORDER.map((z, i) => `<button data-z="${z}" ${i > next ? 'disabled' : ''}>${S.done.includes(z) ? ZONE_META[z].badge : i > next ? '🔒' : '👉'} ${i + 1}. ${ZONE_META[z].short}<br><span class="hint">${ZONE_META[z].game}</span></button>`).join('')}</div>
+    </div>
+    ${S.done.length === 5 ? `<div class="spread"><span></span><button class="btn gold" data-go="${S.finishedAt ? 'cert' : 'pact'}">${S.finishedAt ? 'Ver mi certificado' : 'Firmar el Gran Pacto'}</button></div>` : ''}`;
+  const open = z => { const i = ZONE_ORDER.indexOf(z); if (i <= next && i < 5) go('zone:' + z); };
+  $$('[data-z]', app).forEach(el => {
+    el.addEventListener('click', () => open(el.dataset.z));
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el.dataset.z); } });
+  });
+}
+
+/* ============ mini-videos narrados ============ */
+let MV = [];
+let VOICE = null;
+function pickVoice() { try { const v = speechSynthesis.getVoices(); VOICE = v.find(x => /es[-_](CO|419|MX|US)/i.test(x.lang)) || v.find(x => /^es/i.test(x.lang)) || null; } catch (e) {} }
+try { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; } catch (e) {}
+function speak(text, onend) {
+  try {
+    if (!('speechSynthesis' in window)) throw 0;
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text); u.lang = VOICE ? VOICE.lang : 'es-CO'; if (VOICE) u.voice = VOICE; u.rate = .95; u.pitch = 1.05;
+    let fired = false; const fin = () => { if (!fired) { fired = true; onend(); } };
+    u.onend = fin; u.onerror = fin;
+    speechSynthesis.speak(u);
+    return () => { fired = true; };
+  } catch (e) { const t = setTimeout(onend, 5200); return () => clearTimeout(t); }
+}
+function miniVideo(el, art, scenes, onDone) {
+  el.innerHTML = `<div class="mv"><div class="mv-stage"><div class="mv-art">${art}</div><div class="mv-cap" aria-live="polite"></div><button class="mv-play" aria-label="Reproducir video">▶</button></div>
+    <div class="mv-ctrl"><button class="btn small ghost" data-a="pp">▶ Reproducir</button><div class="dots">${scenes.map(() => '<i></i>').join('')}</div><label><input type="checkbox" checked data-a="voz"> Narración con voz</label></div></div>`;
+  const artEl = $('.mv-art', el), cap = $('.mv-cap', el), big = $('.mv-play', el), pp = $('[data-a=pp]', el), voz = $('[data-a=voz]', el), dots = $$('.dots i', el);
+  let i = -1, playing = false, cancel = null, timer = null;
+  const show = k => {
+    i = k; const s = scenes[k];
+    artEl.style.transform = `scale(${s.z ? s.z[0] : 1})`; artEl.style.transformOrigin = s.z ? `${s.z[1]}% ${s.z[2]}%` : '50% 50%';
+    cap.classList.remove('on'); setTimeout(() => { cap.textContent = s.t; cap.classList.add('on'); }, 250);
+    dots.forEach((d, j) => d.classList.toggle('on', j <= k));
+    const next = () => { if (!playing) return; timer = setTimeout(() => { if (k + 1 < scenes.length) show(k + 1); else end(); }, 700); };
+    if (voz.checked) {
+      let moved = false; const once = () => { if (!moved) { moved = true; clearTimeout(dog); next(); } };
+      cancel = speak(s.t, once);
+      const dog = setTimeout(once, s.t.length * 95 + 3500);
+      const c0 = cancel; cancel = () => { moved = true; clearTimeout(dog); c0 && c0(); };
+    } else { timer = setTimeout(next, Math.max(4200, s.t.length * 62)); }
+  };
+  const end = () => { playing = false; pp.textContent = '↺ Ver otra vez'; big.hidden = false; big.textContent = '↺'; onDone && onDone(); };
+  const stop = () => { playing = false; clearTimeout(timer); cancel && cancel(); try { speechSynthesis.cancel(); } catch (e) {} };
+  const play = () => { if (playing) { stop(); pp.textContent = '▶ Continuar'; big.hidden = false; big.textContent = '▶'; return; }
+    playing = true; big.hidden = true; pp.textContent = '⏸ Pausa'; show(i < 0 || i >= scenes.length - 1 ? 0 : i); };
+  big.onclick = play; pp.onclick = play;
+  const ctl = { stop }; MV.push(ctl);
+  cap.textContent = scenes[0].t; cap.classList.add('on');
+}
+
+/* videos reales incrustados */
+const VCACHE = {};
+function videoURL(k) {
+  if (VCACHE[k]) return VCACHE[k];
+  try { const b = atob(VID[k]); const u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); VCACHE[k] = URL.createObjectURL(new Blob([u], { type: 'video/mp4' })); }
+  catch (e) { VCACHE[k] = 'data:video/mp4;base64,' + VID[k]; }
+  return VCACHE[k];
+}
+function mountVideo(el, k, onPlay) {
+  const v = document.createElement('video'); v.controls = true; v.playsInline = true; v.preload = 'metadata'; v.src = videoURL(k);
+  let tried = false;
+  v.addEventListener('error', () => {
+    if (!tried && !v.src.startsWith('data:')) { tried = true; v.src = 'data:video/mp4;base64,' + VID[k]; return; }
+    el.innerHTML = '<p style="color:#fff;padding:20px">Este navegador no pudo reproducir el video. Pídele a tu profe que lo proyecte desde la presentación.</p>';
+  });
+  v.addEventListener('play', () => { onPlay && onPlay(); });
+  el.appendChild(v);
+}
+
+/* ============ preguntas ============ */
+function mcqBlock(el, zone, qs) {
+  const st = zs(zone);
+  el.innerHTML = qs.map((q, qi) => `<div class="mcq" data-qi="${qi}"><div class="q">${q.q}</div><div class="opts">${q.o.map((o, oi) => `<button class="o" data-oi="${oi}">${o}</button>`).join('')}</div><div class="fb"></div></div>`).join('');
+  $$('.mcq', el).forEach(box => {
+    const qi = +box.dataset.qi, q = qs[qi], fb = $('.fb', box);
+    let tries = 0;
+    if (st.q[qi]) { $$('.o', box)[q.a].classList.add('right'); fb.textContent = '✅ ' + q.f; fb.classList.add('show'); }
+    $$('.o', box).forEach(b => b.onclick = () => {
+      if (st.q[qi]) return;
+      const oi = +b.dataset.oi;
+      if (oi === q.a) {
+        b.classList.add('right'); st.q[qi] = true; fb.textContent = '✅ ' + q.f; fb.classList.add('show'); fb.style.color = '';
+        award(zone + '-q' + qi, tries === 0 ? 10 : 5, '¡Muy bien!'); save(); refreshZone();
+      } else {
+        tries++; b.classList.add('wrong'); fb.textContent = '💭 ' + (q.w || 'Piensa otra vez: ¿cómo se sentiría tu compañero?'); fb.classList.add('show');
+        setTimeout(() => b.classList.remove('wrong'), 900);
+      }
+    });
+  });
+}
+
+/* ============ sopa de letras ============ */
+const WORDS = [
+  ['GUAGUA', 'Guagua', 'Niño o niña pequeño(a). Viene del quechua y es una de las palabras más cariñosas y usadas.'],
+  ['PUPO', 'Pupo', 'Ombligo. Muchos niños en Pasto crecen pensando que esta palabra se dice en todo el país.'],
+  ['TUTANOSO', 'Tutanoso', 'Niño que está mocoso o con la nariz frágil por el frío.'],
+  ['VELUDO', 'Veludo', 'Otra forma de decirle al niño que anda mocoso por el frío.'],
+  ['ACHICHAY', 'Achichay', '¡Qué frío! Lo dicen los niños tiritando cuando salen al parque.'],
+  ['CHICHUCAS', 'Chichucas', 'Expresión de calor, o cuando algo quema mucho.'],
+  ['VIRINGO', 'Viringo', 'Estar completamente desnudo, como los más pequeños cuando corren sin ropa por la casa.'],
+  ['MUERGANO', 'Muérgano', 'Niño travieso o desobediente.'],
+  ['AGUAGUADO', 'Aguaguado', 'Niño o niña muy consentido, mimado o dependiente.'],
+  ['GUAGUARILLO', 'Guagüarillo', 'Se le dice con ternura a un niño que está muy delgado o flaquito.'],
+  ['RIRRE', 'Rirre', 'Un insecto pequeño o un animalito chiquito y miedoso.']
+];
+const WCOL = ['#D7263D', '#0E8C98', '#6C4AB6', '#2E8B57', '#D9772B', '#1F6FB2', '#B5357E', '#8A5A2B', '#0F7A6C', '#C0392B', '#5B6CC2'];
+function buildWS(n) {
+  const dirs = [[0, 1], [1, 0], [1, 1]];
+  for (let attempt = 0; attempt < 200; attempt++) {
+    const g = Array.from({ length: n }, () => Array(n).fill('')), pos = {};
+    let ok = true;
+    for (const [w] of shuffle(WORDS).sort((a, b) => b[0].length - a[0].length)) {
+      let placed = false;
+      for (let t = 0; t < 300 && !placed; t++) {
+        const [dr, dc] = dirs[Math.floor(Math.random() * 3)];
+        const r = Math.floor(Math.random() * (n - (dr ? w.length - 1 : 0))), c = Math.floor(Math.random() * (n - (dc ? w.length - 1 : 0)));
+        let fit = true;
+        for (let k = 0; k < w.length; k++) { const ch = g[r + dr * k][c + dc * k]; if (ch && ch !== w[k]) { fit = false; break; } }
+        if (!fit) continue;
+        for (let k = 0; k < w.length; k++) g[r + dr * k][c + dc * k] = w[k];
+        pos[w] = [r, c, dr, dc]; placed = true;
+      }
+      if (!placed) { ok = false; break; }
+    }
+    if (!ok) continue;
+    const AB = 'ABCDEFGHIJLMNOPRSTUVY';
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (!g[r][c]) g[r][c] = AB[Math.floor(Math.random() * AB.length)];
+    return { g, pos };
+  }
+}
+function wordSearch(el, zone) {
+  const st = zs(zone); const N = 12;
+  if (!st.extra.ws) { st.extra.ws = buildWS(N); st.extra.found = []; save(); }
+  const { g } = st.extra.ws; const found = st.extra.found;
+  el.innerHTML = `<div class="ws">
+    <div><div class="grid-ws" style="grid-template-columns:repeat(${N},1fr)">${g.map((row, r) => row.map((ch, c) => `<div data-r="${r}" data-c="${c}">${ch}</div>`).join('')).join('')}</div>
+    <p class="hint center" style="margin-top:8px">Arrastra sobre las letras, o toca la primera y luego la última letra de la palabra. Las palabras van → , ↓ o en diagonal ↘.</p></div>
+    <div><h3>Palabras nariñenses</h3><div class="wlist">${WORDS.map(([w, n]) => `<span data-w="${w}">${n}</span>`).join('')}</div>
+    <div class="meaning panel" id="mean"><span class="muted">Cuando encuentres una palabra, aquí aparecerá qué significa.</span></div>
+    <p class="hint" id="wcount"></p></div></div>`;
+  const grid = $('.grid-ws', el), cells = $$('.grid-ws div', el);
+  const cell = (r, c) => cells[r * N + c];
+  const paintFound = () => {
+    found.forEach(w => { const [r, c, dr, dc] = st.extra.ws.pos[w]; const col = WCOL[WORDS.findIndex(x => x[0] === w) % WCOL.length];
+      for (let k = 0; k < w.length; k++) { const d = cell(r + dr * k, c + dc * k); d.classList.add('found'); d.style.background = col; } });
+    $$('.wlist span', el).forEach(s => { if (found.includes(s.dataset.w)) { s.classList.add('found'); s.style.background = WCOL[WORDS.findIndex(x => x[0] === s.dataset.w) % WCOL.length]; } });
+    $('#wcount').textContent = `Encontradas: ${found.length} de ${WORDS.length}`;
+  };
+  let start = null, path = [], dragging = false, moved = false;
+  const clearSel = () => cells.forEach(d => d.classList.remove('sel'));
+  const line = (a, b) => {
+    const dr = Math.sign(b[0] - a[0]), dc = Math.sign(b[1] - a[1]);
+    const len = Math.max(Math.abs(b[0] - a[0]), Math.abs(b[1] - a[1]));
+    if (!(a[0] === b[0] || a[1] === b[1] || Math.abs(b[0] - a[0]) === Math.abs(b[1] - a[1]))) return [a];
+    const out = []; for (let k = 0; k <= len; k++) out.push([a[0] + dr * k, a[1] + dc * k]); return out;
+  };
+  const paintSel = () => { clearSel(); path.forEach(([r, c]) => cell(r, c).classList.add('sel')); };
+  const check = () => {
+    const s = path.map(([r, c]) => g[r][c]).join(''), rev = s.split('').reverse().join('');
+    const hit = WORDS.find(([w]) => (w === s || w === rev) && !found.includes(w));
+    if (hit && path.length === hit[0].length) {
+      const [r, c, dr, dc] = st.extra.ws.pos[hit[0]];
+      const same = path.every(([pr, pc], k) => true);
+      found.push(hit[0]); save();
+      $('#mean').innerHTML = `<h3 style="margin:0 0 4px;color:${WCOL[WORDS.indexOf(hit) % WCOL.length]}">${hit[1]}</h3><p style="margin:0">${hit[2]}</p>`;
+      toast('¡Encontraste “' + hit[1] + '”!');
+      paintFound();
+      if (found.length === WORDS.length) { st.game = true; award(zone + '-game', 30, '¡Sopa de letras completa!'); save(); refreshZone(); }
+    }
+    path = []; clearSel();
+  };
+  const at = e => { const t = document.elementFromPoint(e.clientX, e.clientY); return t && t.dataset && t.dataset.r !== undefined ? [+t.dataset.r, +t.dataset.c] : null; };
+  grid.addEventListener('pointerdown', e => {
+    const p = at(e); if (!p) return; e.preventDefault();
+    if (start && !dragging && !moved) { path = line(start, p); paintSel(); start = null; check(); return; }
+    start = p; dragging = true; moved = false; path = [p]; paintSel();
+  });
+  grid.addEventListener('pointermove', e => { if (!dragging) return; const p = at(e); if (!p) return; if (p[0] !== start[0] || p[1] !== start[1]) moved = true; path = line(start, p); paintSel(); });
+  window.addEventListener('pointerup', function up() {
+    if (!dragging) return; dragging = false;
+    if (moved) { start = null; moved = false; check(); }
+    // si no se movió, queda esperando el segundo toque
+  });
+  paintFound();
+}
+
+/* ============ crucigrama ============ */
+const CW = { H: 13, W: 13, words: [
+  { n: 1, d: 'H', w: 'EMPATIA', show: 'EMPATÍA', r: 11, c: 6, clue: 'Sentimiento de ponerse en el lugar de otra persona y comprender cómo se siente.' },
+  { n: 2, d: 'V', w: 'TOLERANCIA', show: 'TOLERANCIA', r: 2, c: 9, clue: 'Capacidad de aceptar que otras personas pueden pensar o actuar de manera diferente.' },
+  { n: 3, d: 'H', w: 'RESPETO', show: 'RESPETO', r: 3, c: 3, clue: 'Tratar bien a todas las personas, aceptando sus diferencias y opiniones.' },
+  { n: 4, d: 'V', w: 'DIALOGO', show: 'DIÁLOGO', r: 4, c: 2, clue: 'Hablar y escuchar a los demás para solucionar problemas de manera pacífica.' },
+  { n: 5, d: 'H', w: 'AMISTAD', show: 'AMISTAD', r: 5, c: 0, clue: 'Relación de cariño y compañerismo que tenemos con otras personas.' },
+  { n: 6, d: 'V', w: 'HONESTIDAD', show: 'HONESTIDAD', r: 0, c: 4, clue: 'Decir la verdad y actuar correctamente, aunque nadie nos esté observando.' },
+  { n: 7, d: 'H', w: 'SOLIDARIDAD', show: 'SOLIDARIDAD', r: 7, c: 0, clue: 'Ayudar a los demás cuando lo necesitan y compartir con quienes nos rodean.' },
+  { n: 8, d: 'V', w: 'AMABILIDAD', show: 'AMABILIDAD', r: 3, c: 12, clue: 'Tratar a los demás con cariño, atención y buenos modales.' }
+] };
+function crossword(el, zone) {
+  const st = zs(zone);
+  const sol = Array.from({ length: CW.H }, () => Array(CW.W).fill(null)), num = {}, wordsAt = {};
+  CW.words.forEach((wd, wi) => { for (let k = 0; k < wd.w.length; k++) { const r = wd.r + (wd.d === 'V' ? k : 0), c = wd.c + (wd.d === 'H' ? k : 0); sol[r][c] = wd.w[k]; (wordsAt[r + ',' + c] = wordsAt[r + ',' + c] || []).push(wi); }
+    num[wd.r + ',' + wd.c] = (num[wd.r + ',' + wd.c] ? num[wd.r + ',' + wd.c] + '/' : '') + wd.n; });
+  if (!st.extra.cw) { st.extra.cw = {}; }
+  const val = st.extra.cw;
+  el.innerHTML = `<div class="cw">
+    <div class="cw-grid" style="grid-template-columns:repeat(${CW.W},var(--cs))">${sol.map((row, r) => row.map((ch, c) => ch ? `<div class="c on" data-r="${r}" data-c="${c}">${num[r + ',' + c] ? `<sup>${num[r + ',' + c]}</sup>` : ''}<input maxlength="1" inputmode="text" autocomplete="off" aria-label="Fila ${r + 1} columna ${c + 1}" value="${esc(val[r + ',' + c] || '')}"></div>` : '<div class="c"></div>').join('')).join('')}</div>
+    <div class="clues">
+      <p class="muted" style="margin-top:0">Completa las casillas en blanco con las letras de los valores que ayudan a construir una buena convivencia. Escribe sin tildes.</p>
+      <h4>➡️ Horizontales</h4><ol>${CW.words.map((w, i) => w.d === 'H' ? `<li data-wi="${i}"><b>${w.n}.</b> ${w.clue}</li>` : '').join('')}</ol>
+      <h4>⬇️ Verticales</h4><ol>${CW.words.map((w, i) => w.d === 'V' ? `<li data-wi="${i}"><b>${w.n}.</b> ${w.clue}</li>` : '').join('')}</ol>
+      <div class="row" style="margin-top:12px"><button class="btn small" id="cwchk">Revisar</button><button class="btn small ghost" id="cwhint">Dame una pista</button></div>
+      <p class="hint" id="cwmsg"></p>
+    </div></div>`;
+  let cur = 0;
+  const inp = (r, c) => $(`.c[data-r="${r}"][data-c="${c}"] input`, el);
+  const cellsOf = wi => { const w = CW.words[wi]; return [...w.w].map((_, k) => [w.r + (w.d === 'V' ? k : 0), w.c + (w.d === 'H' ? k : 0)]); };
+  const highlight = wi => { cur = wi; $$('.c', el).forEach(d => d.classList.remove('hl')); cellsOf(wi).forEach(([r, c]) => inp(r, c).parentNode.classList.add('hl')); $$('.clues li', el).forEach(li => li.classList.toggle('act', +li.dataset.wi === wi)); };
+  const solvedW = wi => cellsOf(wi).every(([r, c]) => (val[r + ',' + c] || '') === sol[r][c]);
+  const refresh = () => {
+    $$('.clues li', el).forEach(li => li.classList.toggle('solved', solvedW(+li.dataset.wi)));
+    if (CW.words.every((_, i) => solvedW(i)) && !st.game) { st.game = true; award(zone + '-game', 30, '¡Crucigrama completo!'); $('#cwmsg').textContent = '🎉 ¡Completaste el crucigrama de la buena convivencia!'; save(); refreshZone(); $$('.c.on', el).forEach(d => d.classList.add('okc')); }
+  };
+  $$('.c.on', el).forEach(d => {
+    const r = +d.dataset.r, c = +d.dataset.c, i = $('input', d);
+    i.addEventListener('focus', () => { const ws = wordsAt[r + ',' + c]; if (!ws.includes(cur)) highlight(ws[0]); });
+    i.addEventListener('click', () => { const ws = wordsAt[r + ',' + c]; if (ws.length > 1 && ws.includes(cur)) highlight(ws.find(x => x !== cur)); });
+    i.addEventListener('input', () => {
+      let v = i.value.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-ZÑ]/g, '').slice(-1); i.value = v;
+      val[r + ',' + c] = v; d.classList.remove('badc', 'okc'); save();
+      if (v) { const cs = cellsOf(cur); const k = cs.findIndex(([a, b]) => a === r && b === c); if (k >= 0 && k + 1 < cs.length) inp(...cs[k + 1]).focus(); }
+      refresh();
+    });
+    i.addEventListener('keydown', e => {
+      if (e.key === 'Backspace' && !i.value) { const cs = cellsOf(cur); const k = cs.findIndex(([a, b]) => a === r && b === c); if (k > 0) { e.preventDefault(); const p = inp(...cs[k - 1]); p.value = ''; val[cs[k - 1].join(',')] = ''; p.focus(); save(); } }
+    });
+  });
+  $$('.clues li', el).forEach(li => li.onclick = () => { const wi = +li.dataset.wi; highlight(wi); const [r, c] = cellsOf(wi).find(([a, b]) => (val[a + ',' + b] || '') !== sol[a][b]) || cellsOf(wi)[0]; inp(r, c).focus(); });
+  $('#cwchk').onclick = () => {
+    let bad = 0, empty = 0;
+    $$('.c.on', el).forEach(d => { const k = d.dataset.r + ',' + d.dataset.c, v = val[k] || ''; d.classList.remove('okc', 'badc'); if (!v) empty++; else if (v === sol[d.dataset.r][d.dataset.c]) d.classList.add('okc'); else { d.classList.add('badc'); bad++; } });
+    $('#cwmsg').textContent = bad ? `Hay ${bad} letra(s) por corregir (en rojo). ¡Tú puedes!` : empty ? `¡Vas muy bien! Faltan ${empty} casillas.` : '';
+    refresh();
+  };
+  $('#cwhint').onclick = () => {
+    const cs = cellsOf(cur); const miss = cs.find(([a, b]) => (val[a + ',' + b] || '') !== sol[a][b]) || CW.words.flatMap((_, i) => cellsOf(i)).find(([a, b]) => (val[a + ',' + b] || '') !== sol[a][b]);
+    if (!miss) return; const [a, b] = miss; val[a + ',' + b] = sol[a][b]; const x = inp(a, b); x.value = sol[a][b]; x.parentNode.classList.add('okc'); save(); refresh();
+  };
+  highlight(0); refresh();
+}
+
+/* ============ platos típicos (emparejar) ============ */
+const DISHES = [
+  ['Cuy asado', 'Se asa lentamente al carbón y se sirve con papas y ají de maní.'],
+  ['Hornado', 'Cerdo cocinado despacio en horno de leña, servido con papa y mote.'],
+  ['Empanadas de añejo', 'Masa de maíz fermentado, rellena y frita: ¡muy crocante!'],
+  ['Champús', 'Bebida fría de maíz con lulo, piña, panela y hojas de naranjo.'],
+  ['Helado de paila', 'Se bate a mano en una paila de cobre que gira sobre hielo.'],
+  ['Quimbolitos', 'Bizcochos dulces y esponjosos cocinados al vapor en hoja de achira.']
+];
+function matchGame(el, zone) {
+  const st = zs(zone); st.extra.m = st.extra.m || [];
+  const right = shuffle(DISHES.map((d, i) => i));
+  el.innerHTML = `<p class="muted">Toca un plato y luego la descripción que le corresponde.</p><div class="match"><div class="col">${DISHES.map((d, i) => `<button class="mt dish" data-l="${i}">${d[0]}</button>`).join('')}</div><div class="col">${right.map(i => `<button class="mt" data-r="${i}">${DISHES[i][1]}</button>`).join('')}</div></div><p class="hint" id="mmsg"></p>`;
+  let pick = null;
+  const paint = () => { st.extra.m.forEach(i => { $(`[data-l="${i}"]`, el).classList.add('ok'); $(`[data-r="${i}"]`, el).classList.add('ok'); $(`[data-r="${i}"]`, el).textContent = '✅ ' + DISHES[i][0] + ': ' + DISHES[i][1]; }); $('#mmsg').textContent = `Parejas: ${st.extra.m.length} de ${DISHES.length}`; };
+  $$('[data-l]', el).forEach(b => b.onclick = () => { if (b.classList.contains('ok')) return; $$('[data-l]', el).forEach(x => x.classList.remove('pick')); b.classList.add('pick'); pick = +b.dataset.l; });
+  $$('[data-r]', el).forEach(b => b.onclick = () => {
+    if (b.classList.contains('ok') || pick === null) { if (pick === null) $('#mmsg').textContent = 'Primero toca el nombre de un plato.'; return; }
+    if (+b.dataset.r === pick) { st.extra.m.push(pick); pick = null; $$('[data-l]', el).forEach(x => x.classList.remove('pick')); save(); paint(); toast('¡Qué rico! Pareja correcta');
+      if (st.extra.m.length === DISHES.length) { st.extra.food = true; award(zone + '-food', 20, '¡Conoces la cocina pastusa!'); checkPasto(); } }
+    else { b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); }
+  });
+  paint();
+}
+function checkPasto() { const st = zs('pasto'); if (st.extra.food && st.extra.barniz) { st.game = true; save(); } refreshZone(); }
+
+/* ============ rompecabezas ============ */
+function puzzle(el, zone) {
+  const st = zs(zone);
+  const n = st.extra.pn || 3;
+  if (!st.extra.pz || st.extra.pz.length !== n * n) {
+    let a; do { a = shuffle([...Array(n * n).keys()]); } while (a.every((v, i) => v === i));
+    st.extra.pz = a; save();
+  }
+  const order = st.extra.pz;
+  const solved = () => order.every((v, i) => v === i);
+  el.innerHTML = `<div class="pz-wrap"><div><div class="pz ${solved() ? 'solved' : ''}" style="grid-template-columns:repeat(${n},1fr)">${order.map((v, i) => {
+      const x = v % n, y = Math.floor(v / n);
+      return `<button data-i="${i}" aria-label="Pieza ${i + 1}" style="background-image:url(${IMG.carroza});background-size:${n * 100}% ${n * 100}%;background-position:${n > 1 ? x * 100 / (n - 1) : 0}% ${n > 1 ? y * 100 / (n - 1) : 0}%"></button>`; }).join('')}</div>
+      <p class="hint center" style="margin-top:8px">Toca dos piezas para cambiarlas de lugar.</p></div>
+    <div><h3 style="margin-top:0">Así debe quedar</h3><img src="${IMG.carroza}" alt="Carroza del Carnaval de Negros y Blancos" style="border-radius:12px;border:2px solid var(--line)">
+      <div class="row" style="margin-top:10px"><button class="btn small ghost" id="pz3">Fácil 3×3</button><button class="btn small ghost" id="pz4">Difícil 4×4</button></div>
+      <p class="hint" id="pzm">${solved() ? '🎉 ¡Armaste la carroza!' : ''}</p></div></div>`;
+  let pick = null;
+  $$('.pz button', el).forEach(b => b.onclick = () => {
+    if (solved()) return;
+    const i = +b.dataset.i;
+    if (pick === null) { pick = i; b.classList.add('pick'); return; }
+    if (pick !== i) { [order[pick], order[i]] = [order[i], order[pick]]; save(); }
+    pick = null;
+    if (solved()) { st.game = true; award(zone + '-game', 30, '¡Armaste la carroza!'); save(); }
+    puzzle(el, zone); refreshZone();
+  });
+  $('#pz3').onclick = () => { st.extra.pn = 3; st.extra.pz = null; puzzle(el, zone); };
+  $('#pz4').onclick = () => { st.extra.pn = 4; st.extra.pz = null; puzzle(el, zone); };
+}
+
+/* ============ ilustraciones de los mini-videos ============ */
+const ART = {
+  cocha: `<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="cs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CC8EA"/><stop offset="1" stop-color="#E5F3F7"/></linearGradient>
+    <linearGradient id="cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5AA9D8"/><stop offset="1" stop-color="#1B5E96"/></linearGradient></defs>
+    <rect width="640" height="360" fill="url(#cs)"/>
+    <g fill="#fff" opacity=".9"><ellipse cx="120" cy="60" rx="46" ry="14"/><ellipse cx="480" cy="44" rx="60" ry="16"/></g>
+    <path d="M0 190 L90 120 L180 170 L290 100 L380 160 L470 110 L560 150 L640 120 L640 220 L0 220Z" fill="#5E9C63"/>
+    <path d="M0 210 L120 170 L260 200 L400 160 L540 196 L640 176 L640 236 L0 236Z" fill="#3F7F4A"/>
+    <rect y="220" width="640" height="140" fill="url(#cl)"/>
+    <g stroke="#CFEAF8" stroke-width="3" fill="none" opacity=".8"><path d="M40 270 q14 -7 28 0"/><path d="M160 300 q14 -7 28 0"/><path d="M430 290 q14 -7 28 0"/><path d="M560 320 q14 -7 28 0"/></g>
+    <ellipse cx="330" cy="248" rx="70" ry="16" fill="#2F6B3A"/><circle cx="310" cy="236" r="12" fill="#255A30"/><circle cx="332" cy="230" r="15" fill="#2A6334"/><circle cx="354" cy="238" r="11" fill="#255A30"/>
+    <rect x="326" y="210" width="10" height="18" fill="#fff"/><path d="M323 212 L331 200 L339 212Z" fill="#D7263D"/>
+    <g transform="translate(60 196)">${['#D7263D', '#F4B400', '#0E8C98', '#6C4AB6', '#2E8B57'].map((c, i) => `<g transform="translate(${i * 40} 0)"><rect x="0" y="10" width="34" height="22" fill="${c}"/><path d="M-4 12 L17 -4 L38 12Z" fill="#7B3F22"/><rect x="6" y="16" width="8" height="8" fill="#fff"/><rect x="20" y="18" width="8" height="14" fill="#fff"/></g>`).join('')}</g>
+    <g transform="translate(470 280)"><path d="M0 14 L70 14 L60 28 L10 28Z" fill="#F4B400"/><path d="M0 14 L70 14" stroke="#D7263D" stroke-width="4"/><rect x="20" y="0" width="26" height="14" fill="#0E8C98"/></g>
+    <g transform="translate(560 170)"><circle r="16" fill="#F4B400" opacity=".0"/></g>
+  </svg>`,
+  lajas: `<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="ls" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9D8F2"/><stop offset="1" stop-color="#EAF6F2"/></linearGradient></defs>
+    <rect width="640" height="360" fill="url(#ls)"/>
+    <path d="M0 140 L0 360 L230 360 L250 150 L200 110Z" fill="#8E7B67"/><path d="M640 130 L640 360 L410 360 L390 150 L450 100Z" fill="#8E7B67"/>
+    <path d="M0 140 L200 110 L250 150 L240 165 L0 170Z" fill="#6E9E5A"/><path d="M640 130 L450 100 L390 150 L400 165 L640 170Z" fill="#6E9E5A"/>
+    <path d="M230 360 Q320 250 410 360Z" fill="#3D7EB8"/><path d="M280 340 q10 -6 20 0 M330 330 q10 -6 20 0" stroke="#CFEAF8" stroke-width="3" fill="none"/>
+    <path d="M200 176 H440 V214 Q320 150 200 214Z" fill="#CFC7B8" stroke="#9A9083" stroke-width="3"/>
+    <g fill="#E1DBCF" stroke="#8F8577" stroke-width="3">
+      <rect x="276" y="94" width="88" height="84"/><path d="M270 96 L320 44 L370 96Z"/>
+      <rect x="248" y="70" width="26" height="108"/><rect x="366" y="70" width="26" height="108"/>
+      <path d="M244 72 L261 20 L278 72Z"/><path d="M362 72 L379 20 L396 72Z"/>
+    </g>
+    <circle cx="320" cy="122" r="16" fill="#6C4AB6" stroke="#fff" stroke-width="3"/><path d="M320 108 v28 M306 122 h28" stroke="#fff" stroke-width="2"/>
+    <rect x="308" y="146" width="24" height="32" rx="12" fill="#7B4B34"/>
+    <g font-size="20">${[[120, 250], [520, 240], [80, 300], [560, 300]].map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="10" fill="#fff" opacity=".5"/>`).join('')}</g>
+  </svg>`,
+  galeras: `<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7C98B"/><stop offset=".5" stop-color="#F3E2C2"/><stop offset="1" stop-color="#CFE7D6"/></linearGradient>
+    <linearGradient id="gv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6D3F32"/><stop offset=".6" stop-color="#5B6E3C"/><stop offset="1" stop-color="#3E6B3F"/></linearGradient></defs>
+    <rect width="640" height="360" fill="url(#gs)"/>
+    <g fill="#fff" opacity=".9"><circle cx="330" cy="70" r="18"/><circle cx="350" cy="50" r="24"/><circle cx="380" cy="34" r="28"/><circle cx="416" cy="24" r="22"/></g>
+    <path d="M80 300 L270 96 Q320 76 370 98 L580 300Z" fill="url(#gv)"/>
+    <path d="M270 96 Q320 76 370 98 L350 118 Q320 106 292 118Z" fill="#4A2319"/>
+    <path d="M150 230 Q200 210 240 232 M400 220 Q450 200 500 226" stroke="#7FA05A" stroke-width="6" fill="none" opacity=".6"/>
+    <rect y="290" width="640" height="70" fill="#5B8F4E"/>
+    <g transform="translate(40 250)">${[0, 60, 120, 400, 460, 520].map((x, i) => `<rect x="${x}" y="${20 - (i % 3) * 8}" width="46" height="${40 + (i % 3) * 8}" fill="${['#F2E2C4', '#E7C9A0', '#fff'][i % 3]}" stroke="#C9B89B"/><rect x="${x + 8}" y="${30 - (i % 3) * 8}" width="10" height="10" fill="#8FB3D9"/><rect x="${x + 26}" y="${30 - (i % 3) * 8}" width="10" height="10" fill="#8FB3D9"/>`).join('')}
+      <rect x="250" y="0" width="60" height="60" fill="#fff" stroke="#C9B89B"/><path d="M250 0 L280 -30 L310 0Z" fill="#D7263D"/></g>
+    <g fill="#9DB36B">${[[180, 300], [210, 312], [430, 306], [460, 316]].map(p => `<rect x="${p[0] - 3}" y="${p[1] - 30}" width="6" height="30" fill="#6B5A3A"/><circle cx="${p[0]}" cy="${p[1] - 34}" r="12"/>`).join('')}</g>
+  </svg>`
+};
+
+/* ============ contenido de las zonas ============ */
+const ZONES = {
+  cocha: {
+    sub: 'En El Encano, muy cerca de Pasto, el pueblo Quillacinga cuida un lago enorme. Aquí aprenderás palabras que solo se dicen en Nariño.',
+    guide: { inti: '¡Bienvenido a mi casa! Aquí en El Encano mi familia navega en lancha por la laguna.', def: 'Inti, nuestro amigo quillacinga, vive aquí. ¡Escuchemos lo que nos cuenta la laguna!' },
+    build(el) {
+      el.innerHTML = `
+        <div class="panel"><h3>1. Mira el video</h3><div id="mv"></div><p style="margin-top:10px"><a class="yt" href="${YT('Laguna de la Cocha Nariño documental niños')}" target="_blank" rel="noopener">Buscar más videos de la Laguna de la Cocha en YouTube</a></p></div>
+        <div class="panel"><h3>2. Juega: Sopa de letras del dialecto nariñense</h3><div id="game"></div></div>
+        <div class="panel"><h3>3. Piensa y responde</h3><div id="qs"></div></div>`;
+      miniVideo($('#mv', el), ART.cocha, [
+        { t: 'Esta es la Laguna de la Cocha, en El Encano. Es uno de los lagos naturales más grandes de Colombia.', z: [1, 50, 50] },
+        { t: 'En el centro está la isla La Corota, un santuario donde se protegen plantas y animales.', z: [1.8, 52, 66] },
+        { t: 'A orillas de la laguna viven familias del pueblo Quillacinga, que cuidan el agua y la tierra como a una madre.', z: [1.6, 20, 62] },
+        { t: 'En Nariño usamos palabras especiales que vienen del quechua y de nuestros abuelos: guagua, achichay, chichucas.', z: [1.3, 78, 80] },
+        { t: 'Cada forma de hablar es un tesoro. Nadie debe burlarse de otra persona por su manera de hablar.', z: [1, 50, 50] }
+      ], () => award('cocha-video', 5, 'Viste el video'));
+      wordSearch($('#game', el), 'cocha');
+      mcqBlock($('#qs', el), 'cocha', [
+        { q: 'Llega un compañero de otra ciudad y no sabe qué significa “achichay”. ¿Qué haces?', o: ['Me burlo porque no sabe.', 'Le explico con amabilidad que es una expresión para decir que hace mucho frío.', 'Lo ignoro.'], a: 1, f: '¡Eso es interculturalidad! Compartir lo nuestro con amabilidad.' },
+        { q: 'Un niño dice “guagua” y otro se ríe de él. ¿Qué es lo más justo?', o: ['Reírme también.', 'Decir que las palabras de nuestra tierra son valiosas y pedir respeto.', 'Cambiar de tema y no decir nada.'], a: 1, f: 'Muy bien. Defender con respeto a un compañero es un acto de valentía.' },
+        { q: '¿De qué lengua indígena viene la palabra “guagua”?', o: ['Del inglés.', 'Del quechua.', 'Del francés.'], a: 1, f: '¡Correcto! Del quechua, una lengua de los pueblos andinos.' }
+      ]);
+    },
+    req: () => zs('cocha').game && [0, 1, 2].every(i => zs('cocha').q[i])
+  },
+  lajas: {
+    sub: 'En Ipiales, junto a la frontera con Ecuador, un santuario se levanta sobre un puente de piedra. Un puente une dos orillas; la convivencia une a las personas.',
+    guide: { yeison: 'En el Pacífico construimos puentes de madera sobre el agua. ¡Este es de piedra y está sobre un cañón!', def: '¡Mira ese puente! Así como une dos orillas, nosotros podemos unir a todo el salón.' },
+    build(el) {
+      el.innerHTML = `
+        <div class="panel"><h3>1. Mira el video</h3><div id="mv"></div><p style="margin-top:10px"><a class="yt" href="${YT('Santuario de Las Lajas Ipiales')}" target="_blank" rel="noopener">Buscar más videos del Santuario de Las Lajas en YouTube</a></p></div>
+        <div class="panel"><h3>2. Juega: Crucigrama de la buena convivencia</h3><div id="game"></div></div>
+        <div class="panel"><h3>3. Piensa y responde</h3><div id="qs"></div></div>`;
+      miniVideo($('#mv', el), ART.lajas, [
+        { t: 'Este es el Santuario de Las Lajas, en Ipiales, muy cerca de la frontera con Ecuador.', z: [1, 50, 50] },
+        { t: 'Fue construido sobre un gran puente de piedra que atraviesa el cañón del río Guáitara.', z: [1.5, 50, 70] },
+        { t: 'Hasta aquí llegan visitantes de Colombia, de Ecuador y de muchos países, cada uno con sus costumbres.', z: [1.4, 50, 30] },
+        { t: 'Un puente une dos orillas. La convivencia también es un puente: une a personas que son diferentes.', z: [1.2, 50, 60] },
+        { t: 'Los valores son las piedras de nuestro puente: respeto, diálogo, amistad y solidaridad. ¡Vamos a encontrarlos!', z: [1, 50, 50] }
+      ], () => award('lajas-video', 5, 'Viste el video'));
+      crossword($('#game', el), 'lajas');
+      mcqBlock($('#qs', el), 'lajas', [
+        { q: 'En el trabajo en equipo, un compañero casi no habla y nadie lo escoge. ¿Qué haces?', o: ['Lo invito a mi grupo y le pregunto qué idea tiene.', 'Espero a que el profe lo ubique.', 'Le digo que busque otro grupo.'], a: 0, f: '¡Así se construyen puentes! Incluir a todos hace más fuerte al equipo.' },
+        { q: 'Dos compañeros discuten por un juego. ¿Qué valor les ayuda más?', o: ['Gritar más fuerte.', 'El diálogo: hablar y escucharse por turnos.', 'No volver a hablarse nunca.'], a: 1, f: 'Correcto. El diálogo resuelve los problemas en paz.' },
+        { q: 'El santuario une los dos lados de un cañón. En el salón, ¿qué nos une?', o: ['Los apodos.', 'Las burlas.', 'El respeto y la amistad.'], a: 2, f: '¡Exacto! El respeto y la amistad son nuestro puente.' }
+      ]);
+    },
+    req: () => zs('lajas').game && [0, 1, 2].every(i => zs('lajas').q[i])
+  },
+  pasto: {
+    sub: 'La Ciudad Sorpresa de Colombia, al pie del volcán Galeras. Conoce sus iglesias, su comida y el barniz de Pasto, un arte que la UNESCO protege.',
+    guide: { valentina: '¡Esta es mi ciudad! Te voy a mostrar mis platos favoritos y el barniz que hacen los artesanos de mi barrio.', def: 'Valentina nos espera en Pasto. ¡Prepárate para conocer comida deliciosa y un arte muy especial!' },
+    build(el) {
+      el.innerHTML = `
+        <div class="panel"><h3>1. Mira el video: recorrido por San Juan de Pasto</h3>
+          <div class="vidrow"><div class="vid tall" id="vid"></div>
+          <div><img src="${IMG.ciudad}" alt="Plaza de Nariño en Pasto con el volcán Galeras al fondo" style="border-radius:16px;border:2px solid var(--line)">
+          <div class="fact">Pasto es la capital de Nariño. Está al suroccidente de Colombia, cerca de la frontera con Ecuador, y es famosa por su riqueza cultural y sus tradiciones.</div>
+          <div class="fact">Sus iglesias, como San Juan Bautista, la Catedral y Cristo Rey, son parte de la historia de la ciudad.</div></div></div></div>
+        <div class="panel"><h3>2. Juega: ¿Qué comemos en Pasto?</h3>
+          <div class="two" style="margin-bottom:12px"><img src="${IMG.cuy}" alt="Cuy asado con papas" style="border-radius:14px;height:180px;width:100%;object-fit:cover"><img src="${IMG.cuy2}" alt="Mesa con platos típicos de Nariño" style="border-radius:14px;height:180px;width:100%;object-fit:cover"></div>
+          <div id="food"></div></div>
+        <div class="panel"><h3>3. Descubre: el barniz de Pasto (mopa-mopa)</h3>
+          <div class="gallery">
+            <figure><img src="${IMG.mopa}" alt=""><figcaption>La resina de mopa-mopa sale de un arbusto de la selva del Putumayo.</figcaption></figure>
+            <figure><img src="${IMG.artesanos}" alt=""><figcaption>Los artesanos la calientan y la estiran hasta dejarla delgada como un papel.</figcaption></figure>
+            <figure><img src="${IMG.barniz1}" alt=""><figcaption>Luego la cortan en figuras de colores y la pegan sobre la madera.</figcaption></figure>
+            <figure><img src="${IMG.barniz2}" alt=""><figcaption>Sus diseños tienen formas geométricas que vienen de nuestros pueblos originarios.</figcaption></figure>
+            <figure><img src="${IMG.barniz3}" alt=""><figcaption>Cajas, platos y figuras que viajan por todo el mundo.</figcaption></figure>
+            <figure><img src="${IMG.barniz4}" alt=""><figcaption>¡Hasta pajaritos! Cada pieza es única.</figcaption></figure>
+          </div>
+          <div class="fact">En 2020 la UNESCO incluyó el barniz de Pasto mopa-mopa en su lista del patrimonio cultural inmaterial que necesita protección urgente. Es un saber que pasa de abuelos a nietos.</div>
+          <div id="bq"></div>
+          <h3 style="margin-top:18px">¿Sabías que?</h3>
+          <div class="two"><figure style="margin:0"><img src="${IMG.trompo}" alt="Trompo girando en la mano" style="border-radius:14px;height:160px;width:100%;object-fit:cover"><figcaption class="hint">El trompo es uno de los juegos típicos de Nariño.</figcaption></figure>
+          <figure style="margin:0"><img src="${IMG.cucunuba}" alt="Juego de la cucunubá" style="border-radius:14px;height:160px;width:100%;object-fit:cover;background:#fff"><figcaption class="hint">En la cucunubá se lanzan bolas por los huecos para sumar puntos.</figcaption></figure></div>
+        </div>
+        <div class="panel"><h3>4. Piensa y responde</h3><div id="qs"></div></div>`;
+      mountVideo($('#vid', el), 'pasto', () => award('pasto-video', 5, 'Viste el video'));
+      matchGame($('#food', el), 'pasto');
+      const bq = $('#bq', el);
+      mcqBlock(bq, 'pasto-b', [{ q: '¿De dónde viene la resina de mopa-mopa?', o: ['De una fábrica de plástico.', 'De un arbusto de la selva del Putumayo.', 'Del volcán Galeras.'], a: 1, f: '¡Correcto! Es un regalo de la naturaleza que los artesanos transforman.' }]);
+      const obs = () => { if (zs('pasto-b').q[0] && !zs('pasto').extra.barniz) { zs('pasto').extra.barniz = true; save(); checkPasto(); } };
+      bq.addEventListener('click', () => setTimeout(obs, 0)); obs();
+      mcqBlock($('#qs', el), 'pasto', [
+        { q: 'Una compañera nueva trae de almuerzo un plato que no conoces. ¿Qué haces?', o: ['Digo “¡qué asco!”.', 'Le pregunto con curiosidad cómo se llama y de dónde es.', 'Me cambio de mesa.'], a: 1, f: 'La curiosidad respetuosa nos hace amigos de otras culturas.' },
+        { q: '¿Por qué es importante valorar el barniz de Pasto?', o: ['Porque guarda la historia y el trabajo de nuestra gente.', 'Porque es caro.', 'No es importante.'], a: 0, f: '¡Así es! Cuidar nuestras tradiciones es cuidar quiénes somos.' }
+      ]);
+    },
+    req: () => zs('pasto').game && [0, 1].every(i => zs('pasto').q[i])
+  },
+  carnaval: {
+    sub: 'El Carnaval de Negros y Blancos es Patrimonio Cultural Inmaterial de la Humanidad desde 2009. En enero toda la ciudad juega junta, sin importar de dónde venga cada quien.',
+    guide: { valentina: '¡Mi fiesta favorita! El 5 de enero nos pintamos de negro y el 6 jugamos con talco. ¡Todos somos iguales!', def: 'Esta es la fiesta más grande de Nariño. ¡Vamos a armar una carroza entre todos!' },
+    build(el) {
+      el.innerHTML = `
+        <div class="panel"><h3>1. Mira el video: Pasto desde el cielo y su carnaval</h3>
+          <div class="vidrow"><div class="vid tall" id="vid"></div>
+          <div><div class="fact">🖤 <b>Día de Negros (5 de enero):</b> las personas se pintan la cara con cosmético negro como símbolo de igualdad.</div>
+          <div class="fact">🤍 <b>Día de Blancos (6 de enero):</b> se juega con talco y pasa el gran desfile de carrozas.</div>
+          <div class="fact">🎨 Las carrozas las construyen durante meses artesanos que trabajan en equipo: unos modelan, otros pintan y otros diseñan.</div>
+          <p><a class="yt" href="${YT('Carnaval de Negros y Blancos Pasto desfile magno')}" target="_blank" rel="noopener">Buscar más videos del Carnaval en YouTube</a></p></div></div>
+          <div class="gallery" style="margin-top:14px">
+            <figure><img src="${IMG.carn1}" alt=""><figcaption>Una carroza llena de color.</figcaption></figure>
+            <figure><img src="${IMG.carn5}" alt=""><figcaption>Figuras gigantes hechas a mano.</figcaption></figure>
+            <figure><img src="${IMG.carn3}" alt=""><figcaption>El desfile recorre las calles de Pasto.</figcaption></figure>
+            <figure><img src="${IMG.carn4}" alt=""><figcaption>Las comparsas bailan con trajes típicos.</figcaption></figure>
+            <figure><img src="${IMG.desfile}" alt=""><figcaption>Miles de personas celebran juntas.</figcaption></figure>
+          </div></div>
+        <div class="panel"><h3>2. Juega: Arma la carroza</h3><div id="game"></div></div>
+        <div class="panel"><h3>3. Piensa y responde</h3><div id="qs"></div></div>`;
+      mountVideo($('#vid', el), 'carnaval', () => award('carnaval-video', 5, 'Viste el video'));
+      puzzle($('#game', el), 'carnaval');
+      mcqBlock($('#qs', el), 'carnaval', [
+        { q: '¿Cómo construimos juntos la Carroza de la Amistad del grado 4-2?', o: ['Aceptando las ideas de todos, escuchándonos y colaborando con alegría.', 'Que solo trabaje el que dibuja mejor.', 'Dejando por fuera a quien piensa distinto.'], a: 0, f: '¡Eso! Una carroza se construye con las manos y las ideas de todos.' },
+        { q: 'En el carnaval todos se pintan igual. ¿Qué nos enseña eso?', o: ['Que hay que esconder quiénes somos.', 'Que todos tenemos la misma dignidad y podemos jugar juntos.', 'Que solo sirve para ensuciarse.'], a: 1, f: 'Muy bien. El carnaval celebra que todos somos iguales en dignidad.' },
+        { q: 'Un compañero se disfraza con un traje del Pacífico y otro se burla. ¿Qué dices?', o: ['“Qué traje tan bonito, cuéntanos de dónde viene.”', '“Jajaja, qué ridículo.”', 'No digo nada y me río en silencio.'], a: 0, f: '¡Excelente! Valorar la cultura del otro es interculturalidad.' }
+      ]);
+    },
+    req: () => zs('carnaval').game && [0, 1, 2].every(i => zs('carnaval').q[i])
+  },
+  galeras: {
+    sub: 'Llegaste a la cumbre. El Galeras vigila a Pasto: todos vivimos bajo el mismo volcán y somos una sola comunidad.',
+    guide: { samuel: '¡Lo logramos! Desde aquí se ve todo Pasto. ¿Ves el Liceo Maridíaz? Ahí vamos a cumplir nuestro pacto.', def: '¡Llegamos a la cumbre! Escuchemos La Guaneña, la canción que une a todos los nariñenses.' },
+    build(el) {
+      el.innerHTML = `
+        <div class="panel"><h3>1. Mira el video: el volcán Galeras</h3><div id="mv"></div></div>
+        <div class="panel"><h3>2. Escucha: La Guaneña</h3>
+          <p class="muted">La Guaneña es la canción más querida de Nariño. Se canta en fiestas, estadios y colegios: es un himno que nos une a todos, sin importar de dónde vengamos.</p>
+          <div class="vid" id="vid"></div></div>
+        <div class="panel"><h3>3. Piensa y responde</h3><div id="qs"></div></div>`;
+      miniVideo($('#mv', el), ART.galeras, [
+        { t: 'Este es el volcán Galeras. Tiene cerca de 4.270 metros de altura y es uno de los volcanes activos de Colombia.', z: [1, 50, 50] },
+        { t: 'Los pueblos originarios lo llamaron Urcunina, que quiere decir “montaña de fuego”.', z: [1.7, 50, 28] },
+        { t: 'En sus páramos crecen los frailejones, que guardan el agua que llega a la ciudad.', z: [1.6, 30, 88] },
+        { t: 'A sus pies vive toda la ciudad de Pasto: indígenas, afros, mestizos y campesinos, bajo el mismo cielo.', z: [1.4, 50, 85] },
+        { t: 'Desde la cumbre entendemos que somos una sola comunidad. Ahora es tu turno de hacer un pacto.', z: [1, 50, 50] }
+      ], () => award('galeras-video', 5, 'Viste el video'));
+      mountVideo($('#vid', el), 'guanena', () => award('galeras-song', 5, 'Escuchaste La Guaneña'));
+      mcqBlock($('#qs', el), 'galeras', [
+        { q: 'Después de este viaje, ¿qué significa para ti la interculturalidad?', o: ['Que cada uno se quede con los de su grupo.', 'Encontrarnos, escucharnos y aprender unos de otros con respeto.', 'Que todos debemos ser iguales en todo.'], a: 1, f: '¡Exacto! Aprendemos juntos desde nuestras diferencias.' },
+        { q: 'Si mañana escuchas que le ponen un apodo a un compañero, ¿qué harás?', o: ['Me uno para no quedarme por fuera.', 'Digo con respeto que eso lastima y acompaño a mi compañero.', 'Hago como si no hubiera escuchado.'], a: 1, f: 'Eso es ser un verdadero Caminante del Galeras.' }
+      ]);
+    },
+    req: () => [0, 1].every(i => zs('galeras').q[i])
+  }
+};
+
+function scrZone(app, id) {
+  const m = ZONE_META[id], Z = ZONES[id], idx = ZONE_ORDER.indexOf(id);
+  if (!Z || idx > S.done.length) { go('map'); return; }
+  const c = COMPANIONS[S.companion];
+  const line = Z.guide[S.companion] || Z.guide.def;
+  app.innerHTML = `
+    <section class="zhead" style="background:linear-gradient(135deg,${m.color},${shade(m.color, .35)})">
+      <div class="kicker" style="color:#fff;opacity:.85">Estación ${idx + 1} de 5</div>
+      <h1>${m.badge} ${m.n}</h1><p>${Z.sub}</p>
+    </section>
+    <div class="guide">${avatarSVG(c.look)}<div class="bubble"><b>${c.name.split(' ')[0]}:</b> ${line}</div></div>
+    <div id="zbody"></div>
+    <div class="panel" id="finish"></div>`;
+  Z.build($('#zbody', app));
+  refreshZone();
+}
+function refreshZone() {
+  const [scr, id] = S.step.split(':'); if (scr !== 'zone') return;
+  const box = $('#finish'); if (!box) return;
+  const ok = ZONES[id].req(), done = S.done.includes(id), m = ZONE_META[id];
+  const isLast = id === 'galeras';
+  box.innerHTML = `<div class="spread" style="margin:0"><div><h3 style="margin:0">${ok ? '¡Estación completada!' : 'Completa el juego y las preguntas'}</h3>
+    <span class="muted">${ok ? 'Ganaste la insignia ' + m.badge + ' ' + m.short + '.' : 'Cuando termines, podrás ganar la insignia ' + m.badge + '.'}</span></div>
+    <button class="btn ${ok ? 'gold' : ''}" id="fz" ${ok ? '' : 'disabled'}>${isLast ? 'Ir al Gran Pacto del Galeras' : done ? 'Volver al mapa' : 'Ganar insignia y volver al mapa'}</button></div>`;
+  $('#fz').onclick = () => {
+    if (!S.done.includes(id)) { S.done.push(id); award(id + '-badge', 20, 'Insignia ' + m.badge); }
+    save(); go(isLast ? 'pact' : 'map');
+  };
+}
+
+/* ============ Gran Pacto ============ */
+const VALUES = ['Respeto', 'Empatía', 'Diálogo', 'Amistad', 'Solidaridad', 'Tolerancia', 'Honestidad', 'Amabilidad'];
+function scrPact(app) {
+  if (S.done.length < 5) { go('map'); return; }
+  app.innerHTML = `
+    <section class="zhead" style="background:linear-gradient(135deg,#8A3B2A,#3E1E17)"><h1>🌋 El Gran Pacto del Galeras</h1><p>¡Felicidades por llegar a la cumbre! Escribe tu compromiso para la convivencia en tu salón de clase.</p></section>
+    <div class="guide">${avatarSVG(S.player)}<div class="bubble">Yo, <b>${esc(S.player.name)}</b>, me comprometo a...</div></div>
+    <div class="panel"><h3>Elige hasta 3 valores que vas a practicar</h3><div class="vals">${VALUES.map(v => `<button aria-pressed="${S.pact.values.includes(v)}" data-v="${v}">${v}</button>`).join('')}</div></div>
+    <div class="panel"><label for="pt"><h3>Escribe tu compromiso</h3></label>
+      <textarea class="input" id="pt" maxlength="180" placeholder="Ejemplo: Prometo no volver a decir apodos a mis compañeros y escucharlos siempre con respeto.">${esc(S.pact.text)}</textarea>
+      <div class="spread"><span class="hint" id="ph">Escribe al menos una frase.</span><button class="btn green" id="sign">📜 Firmar pacto y ver mi certificado</button></div></div>`;
+  $$('.vals button', app).forEach(b => b.onclick = () => {
+    const v = b.dataset.v, i = S.pact.values.indexOf(v);
+    if (i >= 0) S.pact.values.splice(i, 1); else { if (S.pact.values.length >= 3) { toast('Puedes elegir hasta 3 valores'); return; } S.pact.values.push(v); }
+    save(); $$('.vals button', app).forEach(x => x.setAttribute('aria-pressed', S.pact.values.includes(x.dataset.v)));
+  });
+  $('#pt').oninput = e => { S.pact.text = e.target.value; save(); };
+  $('#sign').onclick = () => {
+    if (S.pact.text.trim().length < 12) { $('#ph').textContent = 'Tu compromiso es muy corto. Cuéntanos qué harás.'; $('#ph').style.color = 'var(--red)'; $('#pt').focus(); return; }
+    if (!S.pact.values.length) { $('#ph').textContent = 'Elige al menos un valor.'; $('#ph').style.color = 'var(--red)'; return; }
+    award('pact', 50, '¡Pacto firmado!'); S.finishedAt = S.finishedAt || new Date().toISOString(); save(); go('cert');
+  };
+}
+
+/* ============ certificado ============ */
+function wrap(text, max) { const words = String(text).split(/\s+/); const lines = []; let l = ''; words.forEach(w => { if ((l + ' ' + w).trim().length > max) { lines.push(l.trim()); l = w; } else l += ' ' + w; }); if (l.trim()) lines.push(l.trim()); return lines; }
+function certSVG() {
+  const p = S.player, c = COMPANIONS[S.companion];
+  const d = new Date(S.finishedAt || Date.now());
+  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const fecha = `Pasto, ${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+  let pact = wrap('“' + S.pact.text.trim() + '”', 62); if (pact.length > 3) { pact = pact.slice(0, 3); pact[2] = pact[2].replace(/”?$/, '…”'); }
+  const F = "'Baloo 2','Nunito','Trebuchet MS',Arial,sans-serif";
+  const band = (y) => { let s = ''; const cols = ['#D7263D', '#F4B400', '#0E8C98', '#2E8B57']; for (let i = 0; i < 60; i++) { const x = 20 + i * 19.33; s += `<path d="M${x} ${y + 10} L${x + 9.6} ${y} L${x + 19.3} ${y + 10} L${x + 9.6} ${y + 20}Z" fill="${cols[i % 4]}"/>`; } return s; };
+  const nameSize = p.name.length > 22 ? 46 : 58;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="1200" height="850" font-family="${F}">
+    <rect width="1200" height="850" fill="#FFFDF8"/>
+    <rect x="20" y="20" width="1160" height="810" fill="none" stroke="#1B2A41" stroke-width="4"/>
+    <rect x="20" y="20" width="1160" height="36" fill="#1B2A41"/>${band(28)}
+    <rect x="20" y="794" width="1160" height="36" fill="#1B2A41"/>${band(802)}
+    <rect x="44" y="76" width="1112" height="696" fill="none" stroke="#F4B400" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+    <text x="600" y="130" text-anchor="middle" font-size="22" font-weight="700" fill="#0E8C98">Caminantes del Galeras: Interculturalidad y Convivencia</text>
+    <text x="600" y="190" text-anchor="middle" font-size="52" font-weight="800" fill="#1B2A41">Certificado de Caminante Intercultural</text>
+    <g transform="translate(90 240)"><circle cx="150" cy="150" r="158" fill="#F4B400"/><svg x="0" y="0" width="300" height="300" viewBox="0 0 200 200">${avatarInner({ ...p, bg: '#D6ECF3' }, 'certclip')}</svg></g>
+    <g transform="translate(300 480)"><circle cx="0" cy="0" r="52" fill="#fff" stroke="#1B2A41" stroke-width="3"/><svg x="-48" y="-48" width="96" height="96" viewBox="0 0 200 200">${avatarInner(c.look, 'certclip2')}</svg></g>
+    <text x="240" y="580" text-anchor="middle" font-size="16" font-weight="700" fill="#56677D">Con mi compañero de viaje</text>
+    <text x="240" y="602" text-anchor="middle" font-size="18" font-weight="800" fill="#1B2A41">${esc(c.name)}</text>
+    <text x="450" y="262" font-size="22" font-weight="700" fill="#56677D">Se otorga a</text>
+    <text x="450" y="${262 + nameSize + 4}" font-size="${nameSize}" font-weight="800" fill="#D7263D">${esc(p.name)}</text>
+    ${wrap('por recorrer la Laguna de la Cocha, el Santuario de Las Lajas, San Juan de Pasto, el Carnaval de Negros y Blancos y el Volcán Galeras, aprendiendo a reconocer, respetar y valorar nuestras diferencias.', 60).map((l, i) => `<text x="450" y="${360 + i * 30}" font-size="21" font-weight="600" fill="#1B2A41">${esc(l)}</text>`).join('')}
+    <g transform="translate(450 470)">${ZONE_ORDER.map((z, i) => `<g transform="translate(${i * 128} 0)"><circle cx="40" cy="40" r="38" fill="${ZONE_META[z].color}"/><text x="40" y="54" text-anchor="middle" font-size="38">${ZONE_META[z].badge}</text><text x="40" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#1B2A41">${ZONE_META[z].short}</text></g>`).join('')}</g>
+    <text x="450" y="620" font-size="20" font-weight="800" fill="#1B2A41">Mi compromiso (${esc(S.pact.values.join(', '))}):</text>
+    ${pact.map((l, i) => `<text x="450" y="${652 + i * 28}" font-size="20" font-style="italic" fill="#1B2A41">${esc(l)}</text>`).join('')}
+    <text x="90" y="660" font-size="24" font-weight="800" fill="#B98700">⭐ ${S.points} puntos de empatía</text>
+    <text x="90" y="700" font-size="17" font-weight="700" fill="#56677D">${fecha}</text>
+    <text x="90" y="726" font-size="17" font-weight="700" fill="#56677D">Liceo De La Merced Maridíaz | Grado 4-2</text>
+    <line x1="830" y1="740" x2="1110" y2="740" stroke="#1B2A41" stroke-width="2"/>
+    <text x="970" y="762" text-anchor="middle" font-size="14" font-weight="700" fill="#56677D">Docentes: Juan Carlos Cuarán y Johan Bolaños</text>
+  </svg>`;
+}
+let DL = null;
+function scrCert(app) {
+  if (!S.finishedAt) { go(S.done.length === 5 ? 'pact' : 'map'); return; }
+  const ansTxt = v => v === null ? '—' : QANS[v][0];
+  app.innerHTML = `
+    <h1>🎉 ¡Eres un Caminante del Galeras!</h1>
+    <p class="lead">Recorriste Nariño y firmaste tu pacto de convivencia. Este es tu certificado.</p>
+    <div class="certbox" id="cb">${certSVG()}</div>
+    <div class="spread">
+      <div class="row"><button class="btn gold" id="dl" hidden>⬇️ Descargar certificado (imagen)</button><button class="btn" id="pr">🖨️ Imprimir</button></div>
+      <div class="row"><button class="btn ghost" data-go="map">Ver el mapa</button><button class="btn ghost" id="reset">Nuevo estudiante</button></div>
+    </div>
+    <p class="hint" id="dlm"></p>
+    <details class="teacher panel"><summary>Para el docente: respuestas del diagnóstico “Descubriendo Juntos”</summary>
+      <table class="tbl"><thead><tr><th>#</th><th>Afirmación</th><th>Respuesta</th></tr></thead><tbody>${QUIZ.map((q, i) => `<tr><td>${i + 1}</td><td>${q}</td><td><b>${ansTxt(S.quiz[i])}</b></td></tr>`).join('')}</tbody></table>
+      <p style="margin-top:10px"><b>Compromiso:</b> ${esc(S.pact.text)}<br><b>Valores elegidos:</b> ${esc(S.pact.values.join(', '))}<br><b>Compañero elegido:</b> ${esc(COMPANIONS[S.companion].name)} (${esc(COMPANIONS[S.companion].role)})<br><b>Puntos de empatía:</b> ${S.points}</p>
+    </details>`;
+  $('#pr').onclick = () => { try { window.print(); } catch (e) { $('#dlm').textContent = 'La impresión no está disponible aquí; usa la descarga.'; } };
+  let armed = false;
+  $('#reset').onclick = e => { if (!armed) { armed = true; e.target.textContent = '¿Seguro? Toca otra vez para borrar'; setTimeout(() => { armed = false; const r = $('#reset'); if (r) r.textContent = 'Nuevo estudiante'; }, 4000); return; } stopMedia(); S = fresh(); save(); go('avatar'); };
+  const btn = $('#dl');
+  if (DL) btn.hidden = false;
+  btn.onclick = async () => {
+    btn.disabled = true; $('#dlm').textContent = 'Preparando tu certificado...';
+    try {
+      const svg = certSVG();
+      const img = new Image();
+      await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
+      const cv = document.createElement('canvas'); cv.width = 2400; cv.height = 1700;
+      const cx = cv.getContext('2d'); cx.fillStyle = '#fff'; cx.fillRect(0, 0, 2400, 1700); cx.drawImage(img, 0, 0, 2400, 1700);
+      const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
+      await DL.save({ filename: 'Certificado ' + S.player.name.replace(/[^\p{L}\p{N} ]/gu, '') + '.png', data: blob });
+      $('#dlm').textContent = '¡Listo! Tu certificado se descargó.';
+    } catch (e) {
+      $('#dlm').textContent = e && e.code === 'declined' ? 'Descarga cancelada.' : 'No se pudo descargar. Puedes usar el botón Imprimir.';
+    }
+    btn.disabled = false;
+  };
+}
+
+/* ============ capacidades ============ */
+(async () => {
+  try {
+    if (window.claude && typeof window.claude.use === 'function') {
+      DL = await window.claude.use('downloads');
+      if (DL && S.step === 'cert') { const b = $('#dl'); if (b) b.hidden = false; }
+    }
+  } catch (e) { DL = null; }
+})();
+
+render();
+</script>
+</body>
+</html>
