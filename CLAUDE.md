@@ -14,6 +14,8 @@ Público: niños de ~9-10 años. Todo el texto de la interfaz va en español, se
   Videos: `pasto` (iglesias de Pasto), `carnaval` (Pasto aéreo + carnaval), `guanena` (La Guaneña).
 - `build.py` — genera `caminantes-del-galeras.html` (autocontenido, ~7 MB). Ejecutar: `python build.py`.
 - `caminantes-del-galeras.html` — resultado final. No editar a mano.
+- `vercel.json` / `.vercelignore` — deploy estático en Vercel: sin build, `/` reescribe a
+  `caminantes-del-galeras.html` (hay que hacer commit del HTML generado).
 
 ## Flujo de pantallas (S.step)
 1. `avatar` — crear avatar (niño/niña, piel, ojos, cabello, 7 peinados, camiseta, nombre).
